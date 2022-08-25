@@ -1,4 +1,50 @@
 .area {
   padding-top: 355px;
   background-color: #202020;
+  &__list {
+    margin-top: 34px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+  }
+  &__item {
+    position: relative;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 25px 20px;
+    width: 32%;
+    min-height: 260px;
+    margin-right: 15.5px;
+    margin-bottom: 16px;
+    &::before {
+      position: absolute;
+      content: "";
+      background: url("../../../img/before_angle.png");
+      top: 0px;
+      left: -1px;
+      height: 51px;
+      width: 51px;
+    }
+    &::after {
+      position: absolute;
+      content: "";
+      background: url("../../../img/after__angle.png");
+      bottom: 0px;
+      right: -1px;
+      height: 51px;
+      width: 51px;
+    }
+  }
+  &__caption {
+    font-size: 16px;
+    line-height: 34px;
+    color: #4d974c;
+    font-weight: 500;
+  }
+  &__description {
+    font-size: 16px;
+    line-height: 30px;
+    text-align: justify;
+  }
 }

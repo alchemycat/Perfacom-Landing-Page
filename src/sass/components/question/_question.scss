@@ -38,6 +38,7 @@
       margin-bottom: 0;
       font-size: 16px;
       line-height: 14px;
+      position: relative;
     }
     input {
       background-color: transparent;
@@ -48,6 +49,8 @@
       color: #fff;
       line-height: 23px;
       &::placeholder {
+        font-size: 16px;
+        line-height: 14px;
         color: #fff;
       }
     }
