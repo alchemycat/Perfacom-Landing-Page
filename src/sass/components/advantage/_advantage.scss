@@ -1,0 +1,62 @@
+.advantage {
+  padding-top: 88px;
+  background-color: #202020;
+  &__title {
+    margin-bottom: 33px;
+  }
+  &__wrapper {
+    display: flex;
+  }
+  &__left {
+    position: relative;
+    width: 41%;
+    margin-top: 43px;
+    margin-right: 70px;
+    max-height: 570px;
+  }
+  &__right {
+    width: 58%;
+  }
+  &__img {
+    max-width: 504px;
+  }
+  &__circle {
+    position: absolute;
+    border-radius: 50%;
+    bottom: -85px;
+    right: -40px;
+  }
+  &__row {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+  }
+  &__item {
+    max-width: 290px;
+    margin-bottom: 20px;
+    &:not(:nth-child(2n)) {
+      margin-right: 61px;
+    }
+    &_filled {
+      max-width: 100%;
+      margin-bottom: 0px;
+    }
+  }
+  &__caption {
+    margin-top: 10px;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 34px;
+    color: #4d974c;
+    margin-bottom: 0;
+  }
+  &__description {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 30px;
+    margin-top: 3px;
+    text-align: justify;
+    color: #ffffff;
+    margin-bottom: 0px;
+  }
+}
