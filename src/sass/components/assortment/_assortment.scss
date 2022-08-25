@@ -2,7 +2,12 @@
   padding-top: 105px;
   padding-bottom: 105px;
   background-color: #202020;
-
+  &__description {
+    font-size: 16px;
+    line-height: 32px;
+    max-width: 863px;
+    font-weight: 400;
+  }
   &__list {
     margin: 0;
     padding: 0;
