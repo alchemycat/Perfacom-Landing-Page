@@ -23,7 +23,7 @@
     &:not(:last-child)::after {
       content: "";
       position: absolute;
-      top: 3px;
+      top: 5px;
       right: 0px;
       background-color: #4d974c;
       width: 1px;
@@ -49,7 +49,9 @@
       display: flex;
       align-items: center;
       margin-right: 20px;
-      height: 20px;
+    }
+    &__text {
+      margin-top: 4px;
     }
     &__text_call {
       font-size: 14px;

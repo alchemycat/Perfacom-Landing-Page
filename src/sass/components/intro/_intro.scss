@@ -1,0 +1,49 @@
+.intro {
+  padding-top: 100px;
+  background-color: #202020;
+  &__wrapper {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__text {
+    margin-bottom: 12px;
+  }
+
+  &__title {
+    line-height: 80px;
+    margin-bottom: 30px;
+  }
+
+  &__subtitle {
+    margin-bottom: 60px;
+  }
+
+  &__buttons {
+    height: 100%;
+  }
+
+  &__right {
+    position: relative;
+  }
+
+  &__img {
+    display: block;
+    object-fit: cover;
+    max-width: 555px;
+  }
+
+  &__circle {
+    position: absolute;
+    bottom: 30px;
+    left: -110px;
+    width: 220px;
+    object-fit: cover;
+  }
+
+  &__button {
+    &:not(:last-child) {
+      margin-right: 16px;
+    }
+  }
+}

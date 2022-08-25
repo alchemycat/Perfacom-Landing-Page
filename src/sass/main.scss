@@ -1,10 +1,63 @@
-@import "./libs/bootstrap-reboot.min";
-@import "./header/header";
-
 * {
   box-sizing: border-box;
+  font-family: "Ubuntu", sans-serif;
+  font-weight: 400;
 }
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0;
+  padding: 0;
+}
+
+@import "./libs/bootstrap-reboot.min";
+@import "./fonts/fonts";
+@import "./components/header/header";
+@import "./components/intro/intro";
 
 body {
   color: #fff;
+}
+
+.container {
+  max-width: 1270px;
+  margin: 0 auto;
+  padding: 0 10px;
+}
+
+.text {
+  font-size: 18px;
+}
+
+.text_green {
+  color: #4d974c;
+}
+
+.title {
+  font-size: 64px;
+}
+
+.button {
+  background-color: #4d974c;
+  font-size: 16px;
+  color: #fff;
+  text-decoration: none;
+  padding: 20px 50px 20px 30px;
+  border: 1px solid #4d974c;
+  svg {
+    margin-left: 6px;
+  }
+  &_outline {
+    background-color: transparent;
+    border: 1px solid #fff;
+  }
+  &:hover {
+    color: #fff;
+    text-decoration: none;
+  }
 }
