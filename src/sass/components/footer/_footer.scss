@@ -1,0 +1,11 @@
+.footer {
+  padding-top: 35px;
+  padding-bottom: 24px;
+  background-color: #2e2e2e;
+  &__wrapper {
+    display: flex;
+  }
+  &__company {
+    max-width: 187px;
+  }
+}
