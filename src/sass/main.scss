@@ -15,12 +15,34 @@ p {
   padding: 0;
 }
 
+.button {
+  background-color: #4d974c;
+  font-size: 16px;
+  color: #fff;
+  text-decoration: none;
+  padding: 20px 50px 20px 30px;
+  border: 1px solid #4d974c;
+  line-height: 0px;
+  svg {
+    margin-left: 6px;
+  }
+  &_outline {
+    background-color: transparent;
+    border: 1px solid #fff;
+  }
+  &:hover {
+    color: #fff;
+    text-decoration: none;
+  }
+}
+
 @import "./libs/bootstrap-reboot.min";
 @import "./fonts/fonts";
 @import "./components/header/header";
 @import "./components/intro/intro";
 @import "./components/clients/clients";
 @import "./components/assortment/assortment";
+@import "./components/question/question";
 
 body {
   color: #fff;
@@ -42,24 +64,4 @@ body {
 
 .title {
   font-size: 64px;
-}
-
-.button {
-  background-color: #4d974c;
-  font-size: 16px;
-  color: #fff;
-  text-decoration: none;
-  padding: 20px 50px 20px 30px;
-  border: 1px solid #4d974c;
-  svg {
-    margin-left: 6px;
-  }
-  &_outline {
-    background-color: transparent;
-    border: 1px solid #fff;
-  }
-  &:hover {
-    color: #fff;
-    text-decoration: none;
-  }
 }
