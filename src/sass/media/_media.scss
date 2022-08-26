@@ -153,3 +153,95 @@
     font-size: 47px;
   }
 }
+
+@media (max-width: 991px) {
+  .container {
+    max-width: 659px;
+    padding: 0px;
+  }
+  .header {
+    padding: 8px 0px 3px 0px;
+    &__logo {
+      max-width: 123px;
+    }
+    &__wrapper {
+      justify-content: space-between;
+      max-width: 659px;
+      padding: 0px;
+    }
+    .burger {
+      display: block;
+    }
+    .navbar {
+      display: none;
+    }
+    .contacts {
+      display: none;
+    }
+  }
+
+  .intro {
+    padding-top: 50px;
+    &__left {
+      margin-top: 20px;
+    }
+
+    &__text {
+      margin-bottom: 12px;
+    }
+
+    &__title {
+      margin-bottom: 25px;
+    }
+
+    &__subtitle {
+      margin-bottom: 20px;
+    }
+
+    &__buttons {
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+
+    &__img {
+      display: block;
+      object-fit: cover;
+      width: 266px;
+      height: 354px;
+    }
+
+    &__circle {
+      position: absolute;
+      bottom: 25px;
+      left: -60px;
+      width: 105px;
+      object-fit: cover;
+    }
+    &__right {
+      width: 266px;
+    }
+  }
+
+  .text {
+    font-size: 16px;
+    line-height: 18px;
+  }
+
+  .title {
+    font-size: 36px;
+    line-height: 48px;
+  }
+
+  .button.intro__button {
+    display: block;
+    max-width: 230px;
+    text-align: center;
+    padding: 0px;
+    line-height: 36px;
+    font-weight: 400;
+    font-size: 14px;
+    margin-right: 0;
+    margin-bottom: 19px;
+  }
+}
