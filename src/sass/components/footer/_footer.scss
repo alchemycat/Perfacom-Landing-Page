@@ -139,6 +139,13 @@
       }
     }
   }
+
+  &__bottom-right {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 748px;
+  }
   &__policy {
     position: relative;
     color: #fff;
