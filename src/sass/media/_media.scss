@@ -498,11 +498,132 @@
 
 @media (max-width: 767px) {
   .container {
-    max-width: 355px;
+    padding: 0px 15px;
+    max-width: 414px;
   }
   .header {
     &__wrapper {
-      max-width: 355px;
+      max-width: 414px;
     }
+  }
+
+  .intro {
+    &__wrapper {
+      flex-direction: column;
+    }
+    &__left {
+      width: 100%;
+    }
+    &__right {
+      margin-top: 34px;
+      height: 284px;
+    }
+    &__buttons {
+      height: 91px;
+    }
+    &__button {
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+    &__circle {
+      bottom: -37px;
+      left: -22px;
+      width: 100px;
+    }
+    &__img {
+      width: 345px;
+      height: 284px;
+    }
+  }
+
+  .clients {
+    padding-top: 70px;
+    &__wrapper {
+      flex-direction: column;
+    }
+  }
+
+  .assortment {
+    &__description {
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 26px;
+
+      text-align: justify;
+    }
+    &__item {
+      width: 354px;
+    }
+  }
+
+  .question {
+    height: 559px;
+    &__block {
+      padding: 31px 20px;
+      width: 354px;
+    }
+    &__left {
+      margin-right: 0px;
+    }
+    &__title.title {
+      font-weight: 400;
+      font-size: 30px;
+      line-height: 42px;
+    }
+    &__button {
+      width: 100%;
+    }
+  }
+
+  .area {
+    padding-top: 100px;
+    &__title {
+      margin: 0;
+    }
+    &__item {
+      width: 100%;
+      margin-bottom: 23px;
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  .advantage {
+    padding-bottom: 455px;
+    &__left {
+      margin-right: 0px;
+      width: 349px;
+      height: 277px;
+      margin-top: 0px;
+      bottom: 110px;
+    }
+    &__img {
+      height: 100%;
+    }
+    &__circle {
+      width: 105px;
+      height: 105px;
+      right: 0px;
+      bottom: -40px;
+    }
+    &__item {
+      max-width: 100%;
+    }
+    &__item:not(:nth-child(2n)) {
+      margin-right: 0px;
+    }
+    &__item_filled {
+      margin-left: 0px;
+    }
+  }
+
+  .footer {
+  }
+
+  .title {
+    font-size: 30px;
+    line-height: 42px;
   }
 }
