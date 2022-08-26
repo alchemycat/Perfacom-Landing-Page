@@ -34,11 +34,41 @@
       width: 100%;
     }
   }
-  .burger {
+
+  .burger__block {
+    display: flex;
+    align-items: center;
     display: none;
+  }
+  .phone {
+    position: relative;
+    z-index: 5;
+    &__icon {
+      margin-right: 7px;
+      svg {
+        width: 15px;
+      }
+    }
+    &__text {
+      margin-top: 3px;
+    }
+    &__item {
+      display: flex;
+      align-items: center;
+      font-size: 14px;
+      line-height: 30px;
+      color: #ffffff;
+      &:hover {
+        text-decoration: none;
+        color: #fff;
+      }
+    }
+  }
+  .burger {
     position: relative;
     width: 24px;
     height: 14px;
+    margin-left: 24px;
     span {
       display: block;
       width: 100%;
@@ -118,10 +148,12 @@
       text-decoration: none;
       display: flex;
       align-items: center;
+
       &:not(:last-child) {
         margin-right: 20px;
       }
     }
+
     &__text {
       margin-top: 4px;
     }
