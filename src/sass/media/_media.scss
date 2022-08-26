@@ -141,10 +141,6 @@
     }
   }
 
-  .button {
-    padding: 20px 30px 20px 30px;
-  }
-
   .text {
     font-size: 16px;
   }
@@ -331,6 +327,59 @@
       line-height: 26px;
 
       text-align: justify;
+    }
+  }
+
+  .area {
+    padding-top: 183px;
+    &__list {
+      margin-top: 34px;
+    }
+    &__item {
+      width: 48%;
+    }
+    &__caption {
+      margin-bottom: 11px;
+    }
+    &__description {
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 26px;
+
+      text-align: justify;
+    }
+  }
+
+  .advantage {
+    position: relative;
+    padding-top: 70px;
+    padding-bottom: 173px;
+    &__left {
+      position: absolute;
+      width: 303px;
+      bottom: 75px;
+    }
+    &__right {
+      width: 100%;
+      flex-direction: row-reverse;
+    }
+    &__item {
+      max-width: 300px;
+      &:not(:nth-child(2n)) {
+        margin-right: 51px;
+      }
+      &_filled {
+        max-width: 300px;
+        margin-left: 53%;
+      }
+    }
+    &__description {
+      font-size: 14px;
+      line-height: 26px;
+    }
+    &__circle {
+      width: 108px;
+      bottom: -30px;
     }
   }
 
