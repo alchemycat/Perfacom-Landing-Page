@@ -16,23 +16,26 @@
     z-index: 3;
   }
   &__wrapper {
-    // position: relative;
-    max-width: 1400px;
+    max-width: 1378px;
+    // min-width: 1240px;
+    padding: 0 15px;
     margin: 0 auto;
     display: flex;
     align-items: center;
-    justify-content: space-around;
+    justify-content: space-between;
   }
   &__logo {
     position: relative;
     z-index: 5;
     display: block;
-    max-width: 127px;
+    max-width: 123px;
     img {
+      object-fit: cover;
       width: 100%;
     }
   }
   .burger {
+    display: none;
     position: relative;
     width: 24px;
     height: 14px;
@@ -60,6 +63,12 @@
     }
   }
 
+  .navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 1055px;
+  }
   .navbar__menu {
     position: relative;
     z-index: 5;
@@ -67,11 +76,14 @@
     padding: 0;
     list-style: none;
     display: flex;
+    // width: 500px;
+    // margin-right: 53px;
   }
   .navbar__item {
     position: relative;
     padding-right: 8px;
     padding-left: 8px;
+    font-size: 15px;
     &::after {
       content: "";
       position: absolute;
@@ -93,6 +105,7 @@
     position: relative;
     z-index: 5;
     display: flex;
+    // width: 565px;
     &__icon {
       margin-right: 6px;
       &_call {
