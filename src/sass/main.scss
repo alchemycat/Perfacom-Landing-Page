@@ -16,13 +16,15 @@ p {
 }
 
 .button {
+  display: block;
+  width: 263px;
+  text-align: center;
+  line-height: 40px;
   background-color: #4d974c;
   font-size: 16px;
   color: #fff;
   text-decoration: none;
-  padding: 20px 50px 20px 30px;
   border: 1px solid #4d974c;
-  line-height: 0px;
   svg {
     margin-left: 6px;
   }

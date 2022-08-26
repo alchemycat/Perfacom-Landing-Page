@@ -215,7 +215,7 @@
   }
 
   .intro {
-    padding-top: 50px;
+    padding-top: 98px;
     &__left {
       margin-top: 20px;
     }
@@ -254,6 +254,83 @@
     }
     &__right {
       width: 266px;
+    }
+  }
+
+  .clients {
+    padding-top: 40px;
+    &__title {
+      line-height: 29.87px;
+    }
+    &__item {
+      &:not(:last-child) {
+        margin-right: 27px;
+      }
+    }
+  }
+
+  .assortment {
+    padding-top: 77px;
+    padding-bottom: 182px;
+    &__description {
+      font-size: 14px;
+      line-height: 26px;
+      max-width: 650px;
+    }
+    &__item {
+      width: 48%;
+      margin-right: 12px;
+    }
+    &__name {
+      font-size: 16px;
+    }
+    &__desc {
+      font-size: 15px;
+    }
+    &__details {
+      font-size: 16px;
+    }
+    &__img {
+      width: 96px;
+      height: 96px;
+    }
+  }
+
+  .question {
+    background-size: cover;
+    height: 397px;
+    &__title.title {
+      font-weight: 400;
+      font-size: 36px;
+      line-height: 48px;
+    }
+    &__block {
+      width: 654px;
+      right: 50%;
+      top: -100px;
+      transform: translateX(50%);
+      padding: 39px 27px;
+
+      flex-direction: column;
+    }
+    &__form {
+      width: 100%;
+      label {
+        font-style: normal;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 0px;
+      }
+      input {
+        margin-bottom: 45px;
+      }
+    }
+    &__text {
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 26px;
+
+      text-align: justify;
     }
   }
 

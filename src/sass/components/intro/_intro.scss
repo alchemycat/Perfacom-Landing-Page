@@ -47,7 +47,10 @@
     width: 220px;
     object-fit: cover;
   }
-
+  &__buttons {
+    display: flex;
+    max-height: 45px;
+  }
   &__button {
     &:not(:last-child) {
       margin-right: 16px;
