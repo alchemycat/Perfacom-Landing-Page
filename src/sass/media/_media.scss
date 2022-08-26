@@ -136,7 +136,7 @@
     }
 
     &__link {
-      font-size: 15px;
+      font-size: 13px;
     }
 
     &__contacts-item {
@@ -153,7 +153,7 @@
       width: 120px;
     }
     &__map {
-      max-width: 290px;
+      width: 235px;
     }
   }
 
@@ -427,13 +427,16 @@
   .footer {
     &__wrapper {
       flex-wrap: wrap;
+      justify-content: flex-start;
+      position: relative;
     }
     &__company {
-      margin-right: 100px;
+      max-width: 183px;
+      margin-right: 80px;
     }
     &__menu {
       width: 148px;
-      margin-right: 38px;
+      margin-right: 28px;
     }
     &__description {
       font-weight: 400;
@@ -448,9 +451,23 @@
       font-size: 14px;
       line-height: 30px;
     }
+    &__contacts {
+      width: 220px;
+      height: 413px;
+      align-items: flex-end;
+    }
     &__contacts-item {
+      width: 177px;
+      margin-right: 0px;
+      margin-bottom: 20px;
       svg {
         width: 15px;
+      }
+      p {
+        font-size: 14px;
+      }
+      span {
+        font-size: 14px;
       }
     }
     &__city {
@@ -464,6 +481,8 @@
       }
     }
     &__map {
+      position: absolute;
+      bottom: 0px;
       width: 445px;
       margin-top: 20px;
       margin-right: 39px;
@@ -620,6 +639,65 @@
   }
 
   .footer {
+    &__wrapper {
+      flex-direction: column;
+      align-items: center;
+      position: relative;
+    }
+    &__company {
+      margin-right: 0px;
+    }
+    &__logo {
+      margin: 0 auto;
+    }
+    &__description {
+      text-align: center;
+    }
+    &__social {
+      display: flex;
+      justify-content: center;
+      margin-top: 34px;
+      &-link {
+        &:last-child {
+          margin-right: 0px;
+        }
+      }
+    }
+    &__menu {
+      margin-top: 21px;
+      margin-right: 0px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    &__contacts {
+      margin-top: 30px;
+      display: flex;
+      flex-wrap: wrap;
+      height: 157px;
+      &-item {
+        width: 49%;
+        justify-content: center;
+        &:not(:last-child) {
+          margin-bottom: 17px;
+        }
+      }
+    }
+    &__city {
+      position: absolute;
+      order: 0;
+      margin-top: 0px;
+      bottom: 315px;
+      right: 0px;
+      width: 100px;
+    }
+    &__map {
+      margin-right: 0px;
+      width: 100%;
+      iframe {
+        width: 100%;
+      }
+    }
   }
 
   .title {
