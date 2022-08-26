@@ -1,0 +1,145 @@
+@media (max-width: 1239px) {
+  .header {
+    &__logo {
+      max-width: 100px;
+    }
+    .navbar {
+      &__item {
+        padding-right: 4px;
+        padding-left: 4px;
+        font-size: 13px;
+      }
+    }
+
+    .contacts {
+      &__item {
+        &:not(:last-child) {
+          margin-right: 5px;
+        }
+      }
+      &__text {
+        font-size: 14px;
+      }
+      .mr-35 {
+        margin-right: 20px;
+      }
+      &__icon {
+        margin-right: 6px;
+        &_call {
+          margin-right: 5px;
+        }
+      }
+    }
+  }
+
+  .intro {
+    &__left {
+      margin-top: 40px;
+    }
+  }
+
+  .clients {
+    &__title {
+      font-size: 25px;
+    }
+
+    &__item {
+      &:not(:last-child) {
+        margin-right: 60px;
+      }
+      &:nth-child(1) {
+        width: 50px;
+      }
+      &:nth-child(2) {
+        width: 80px;
+      }
+      &:nth-child(3) {
+        width: 149px;
+      }
+      &:nth-child(4) {
+        width: 57px;
+      }
+      &:nth-child(5) {
+        width: 70px;
+      }
+      img {
+        object-fit: contain;
+        width: 100%;
+        height: 100%;
+      }
+    }
+  }
+  .assortment {
+    &__list {
+      justify-content: center;
+    }
+  }
+  .question {
+    &__title.title {
+      font-size: 32px;
+    }
+    &__text {
+      padding-left: 0px;
+    }
+    &__form {
+      margin-top: 30px;
+    }
+  }
+
+  .area {
+    &__item {
+      margin-right: 12px;
+    }
+  }
+
+  .advantage {
+    &__left {
+      max-height: 423px;
+    }
+    &__item {
+      max-width: 250px;
+      &:not(:nth-child(2n)) {
+        margin-right: 20px;
+      }
+    }
+  }
+
+  .footer {
+    &__description {
+      font-size: 13px;
+    }
+
+    &__link {
+      font-size: 15px;
+    }
+
+    &__contacts-item {
+      a {
+        font-size: 14px;
+      }
+    }
+
+    &__city {
+      font-size: 14px;
+    }
+
+    &__menu {
+      width: 120px;
+    }
+    &__map {
+      max-width: 290px;
+    }
+  }
+
+  .button {
+    padding: 20px 30px 20px 30px;
+  }
+
+  .text {
+    font-size: 16px;
+  }
+
+  .title {
+    font-size: 47px;
+  }
+}

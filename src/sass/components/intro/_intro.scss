@@ -24,16 +24,19 @@
   }
 
   &__left {
+    width: 52%;
     margin-top: 85px;
   }
   &__right {
     position: relative;
+    width: 45%;
   }
 
   &__img {
     display: block;
     object-fit: cover;
-    max-width: 555px;
+    // max-width: 535px;
+    width: 100%;
   }
 
   &__circle {
