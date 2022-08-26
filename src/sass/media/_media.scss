@@ -525,12 +525,16 @@
 
 @media (max-width: 767px) {
   .container {
-    padding: 0px 15px;
+    padding: 0px 30px;
     max-width: 414px;
   }
   .header {
     &__wrapper {
+      padding: 0px 30px;
       max-width: 414px;
+    }
+    &__logo {
+      max-width: 95px;
     }
   }
 
@@ -543,12 +547,18 @@
     }
     &__right {
       margin-top: 34px;
-      height: 284px;
+      width: 100%;
+      // height: 284px;
+    }
+    &__subtitle {
+      width: 100%;
     }
     &__buttons {
       height: 91px;
     }
-    &__button {
+    &__button.button {
+      max-width: 100%;
+      min-width: 100%;
       &:last-child {
         margin-bottom: 0;
       }
@@ -559,7 +569,7 @@
       width: 100px;
     }
     &__img {
-      width: 345px;
+      width: 100%;
       height: 284px;
     }
   }
@@ -569,9 +579,16 @@
     &__wrapper {
       flex-direction: column;
     }
+    &__title {
+      font-size: 24px;
+    }
+    &__item:not(:last-child) {
+      margin-right: 20px;
+    }
   }
 
   .assortment {
+    padding-bottom: 105px;
     &__description {
       font-weight: 400;
       font-size: 14px;
@@ -581,6 +598,7 @@
     }
     &__item {
       width: 354px;
+      margin-right: 0px;
     }
   }
 
@@ -589,14 +607,16 @@
     &__block {
       padding: 31px 20px;
       width: 354px;
+      top: -65px;
     }
     &__left {
       margin-right: 0px;
     }
     &__title.title {
       font-weight: 400;
-      font-size: 30px;
+      font-size: 27px;
       line-height: 42px;
+      text-align: center;
     }
     &__button {
       width: 100%;
@@ -621,18 +641,19 @@
     padding-bottom: 455px;
     &__left {
       margin-right: 0px;
-      width: 349px;
-      height: 277px;
+      max-width: 349px;
+      max-height: 277px;
       margin-top: 0px;
       bottom: 110px;
     }
     &__img {
-      height: 100%;
+      width: 100%;
+      max-height: 277px;
     }
     &__circle {
       width: 105px;
       height: 105px;
-      right: 0px;
+      right: -15px;
       bottom: -40px;
     }
     &__item {
@@ -642,6 +663,7 @@
       margin-right: 0px;
     }
     &__item_filled {
+      max-width: 100%;
       margin-left: 0px;
     }
   }
@@ -683,8 +705,8 @@
       display: flex;
       flex-wrap: wrap;
       flex-direction: row;
-      width: 354px;
-      height: 157px;
+      width: 100%;
+      height: 167px;
       align-items: flex-start;
       &-item {
         width: 50%;
