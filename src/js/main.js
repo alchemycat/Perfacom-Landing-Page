@@ -4,6 +4,68 @@ window.addEventListener("DOMContentLoaded", () => {
   let im = new Inputmask("+7(999)999-99-99");
   im.mask(elements);
 
+  function validateForms(selector, rules) {
+    new window.JustValidate(selector, {
+      rules: rules,
+      messages: {
+        name: "Укажите имя",
+        email: "Укажите E-mail",
+        phone: "Укажите телефон",
+        question: "Укажите вопрос",
+      },
+      submitHandler: function (form, values, ajax) {
+        console.log(form);
+
+        const at = document.querySelector(".alert");
+
+        if (at) {
+          at.remove();
+        }
+
+        const alertText = document.createElement("div");
+        alertText.classList.add("alert");
+
+        let formData = new FormData(form);
+
+        let xhr = new XMLHttpRequest();
+
+        xhr.onreadystatechange = function () {
+          if (xhr.readyState === 4) {
+            if (xhr.status === 200) {
+              console.log("Отправлено");
+              alertText.innerText = "Заявка успешно отправлена.";
+
+              form.append(alertText);
+            } else {
+              alertText.innerText =
+                "Ошибка, не удалось отправить заявку, попробуйте еще раз.";
+              form.append(alertText);
+            }
+            form.reset();
+          }
+          setTimeout(() => {
+            alertText.remove();
+          }, 3000);
+        };
+
+        xhr.open("POST", "/mailer/smart.php", true);
+        xhr.send(formData);
+      },
+    });
+  }
+
+  validateForms("#question-form", {
+    name: { required: true },
+    phone: { required: true },
+    email: { required: true, email: true },
+  });
+
+  validateForms("#order-form", {
+    name: { required: true },
+    phone: { required: true },
+    email: { required: true, email: true },
+  });
+
   const burger = document.querySelector(".burger");
   const menu = document.querySelector(".navbar");
 
@@ -140,68 +202,6 @@ window.addEventListener("DOMContentLoaded", () => {
     }
   }
   smoothScrolling();
-
-  function validate(form) {
-    const inputs = form.querySelectorAll("input");
-    let result = true;
-
-    inputs.forEach((item) => {
-      if (item.value === "") {
-        result = false;
-      }
-    });
-
-    return result;
-  }
-
-  function sendRequest(formSelector) {
-    const form = document.querySelector(formSelector);
-    const button = form.querySelector(".button");
-
-    button.addEventListener("click", (e) => {
-      e.preventDefault();
-
-      const at = document.querySelector(".alert");
-
-      if (at) {
-        at.remove();
-      }
-
-      console.log(validate(form));
-
-      // const alertText = document.createElement("div");
-      // alertText.classList.add("alert");
-
-      // let formData = new FormData(form);
-
-      // let xhr = new XMLHttpRequest();
-
-      // xhr.onreadystatechange = function () {
-      //   if (xhr.readyState === 4) {
-      //     if (xhr.status === 200) {
-      //       console.log("Отправлено");
-      //       alertText.innerText = "Заявка успешно отправлена.";
-
-      //       form.append(alertText);
-      //     } else {
-      //       alertText.innerText =
-      //         "Ошибка, не удалось отправить заявку, попробуйте еще раз.";
-      //       form.append(alertText);
-      //     }
-      //     form.reset();
-      //   }
-      //   setTimeout(() => {
-      //     alertText.remove();
-      //   }, 3000);
-      // };
-
-      // xhr.open("POST", "/mailer/smart.php", true);
-      // xhr.send(formData);
-    });
-  }
-
-  sendRequest("#order-form");
-  sendRequest("#question-form");
 
   document.querySelectorAll(".modal").forEach((item) => {
     item.addEventListener("click", (e) => {

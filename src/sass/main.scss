@@ -90,3 +90,14 @@ body {
 #order-form {
   width: 100%;
 }
+
+.js-validate-error-label {
+  position: relative;
+  bottom: 30px;
+}
+
+.js-validate-error-field {
+  border: none !important;
+  border-bottom: 1px solid rgb(184, 17, 17) !important;
+  color: rgb(184, 17, 17) !important;
+}
