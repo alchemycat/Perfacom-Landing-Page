@@ -1,4 +1,17 @@
 window.addEventListener("DOMContentLoaded", () => {
+  var elements = document.querySelectorAll('[name="phone"');
+
+  IMask(elements[0], {
+    mask: "+{7}(000)000-00-00",
+    lazy: false, // make placeholder always visible
+    placeholderChar: "_", // defaults to '_'
+  });
+  IMask(elements[1], {
+    mask: "+{7}(000)000-00-00",
+    lazy: false, // make placeholder always visible
+    placeholderChar: "_", // defaults to '_'
+  });
+
   const burger = document.querySelector(".burger");
   const menu = document.querySelector(".navbar");
 
@@ -143,8 +156,14 @@ window.addEventListener("DOMContentLoaded", () => {
     button.addEventListener("click", (e) => {
       e.preventDefault();
 
-      // const alert = document.createElement("div");
-      const alert = document.querySelector(".alert");
+      const at = document.querySelector(".alert");
+
+      if (at) {
+        at.remove();
+      }
+
+      const alertText = document.createElement("div");
+      alertText.classList.add("alert");
 
       let formData = new FormData(form);
 
@@ -154,16 +173,19 @@ window.addEventListener("DOMContentLoaded", () => {
         if (xhr.readyState === 4) {
           if (xhr.status === 200) {
             console.log("Отправлено");
-            alert.innerText == "Заявка успешна отправлена.";
+            alertText.innerText = "Заявка успешно отправлена.";
 
-            form.append(alert);
+            form.append(alertText);
           } else {
-            alert.innerText ==
+            alertText.innerText =
               "Ошибка, не удалось отправить заявку, попробуйте еще раз.";
-            form.append(alert);
+            form.append(alertText);
           }
           form.reset();
         }
+        setTimeout(() => {
+          alertText.remove();
+        }, 3000);
       };
 
       xhr.open("POST", "/mailer/smart.php", true);
@@ -173,4 +195,12 @@ window.addEventListener("DOMContentLoaded", () => {
 
   sendRequest("#order-form");
   sendRequest("#question-form");
+
+  document.querySelectorAll(".modal").forEach((item) => {
+    item.addEventListener("click", (e) => {
+      if (e.target.classList.contains("modal_active")) {
+        e.target.classList.remove("modal_active");
+      }
+    });
+  });
 });
