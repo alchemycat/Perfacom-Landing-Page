@@ -95,6 +95,9 @@
     .footer__select-city {
       position: relative;
       width: fit-content;
+      background: transparent;
+      outline: none;
+      border: none;
 
       color: #4d974c;
       text-decoration: none;
