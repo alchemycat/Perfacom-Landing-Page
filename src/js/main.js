@@ -67,6 +67,12 @@ window.addEventListener("DOMContentLoaded", () => {
     email: { required: true, email: true },
   });
 
+  validateForms("#call-form", {
+    name: { required: true },
+    phone: { required: true },
+    email: { required: true, email: true },
+  });
+
   const burger = document.querySelector(".burger");
   const menu = document.querySelector(".navbar");
 
@@ -203,6 +209,19 @@ window.addEventListener("DOMContentLoaded", () => {
     }
   }
   smoothScrolling();
+
+  function orderCall() {
+    const buttons = document.querySelectorAll(".call_button");
+    const modal = document.querySelector("#call");
+
+    buttons.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        modal.classList.add("modal_active");
+      });
+    });
+  }
+
+  orderCall();
 
   document.querySelectorAll(".modal").forEach((item) => {
     item.addEventListener("click", (e) => {
