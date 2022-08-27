@@ -54,10 +54,11 @@
     bottom: 16px;
     left: 15px;
     color: #fff;
+    border: none;
+    background-color: transparent;
     transition: all 0.3s ease;
     &:hover {
       color: #4d974c;
-      text-decoration: none;
     }
     span {
       text-decoration: underline;
