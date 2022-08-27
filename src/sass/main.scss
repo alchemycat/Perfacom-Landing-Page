@@ -32,6 +32,7 @@ p {
   color: #fff;
   text-decoration: none;
   border: 1px solid #4d974c;
+  transition: all 0.3s ease;
   svg {
     margin-left: 6px;
   }
@@ -42,6 +43,7 @@ p {
   &:hover {
     color: #fff;
     text-decoration: none;
+    opacity: 0.7;
   }
 }
 
