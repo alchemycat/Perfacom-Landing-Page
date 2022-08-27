@@ -36,9 +36,13 @@
     flex-direction: column;
     label {
       margin-bottom: 0;
-      font-size: 16px;
-      line-height: 14px;
+      // font-size: 16px;
+      // line-height: 14px;
       position: relative;
+      transition: all 0.3s ease;
+      &.active {
+        transform: translateY(-10px);
+      }
     }
     input {
       background-color: transparent;
@@ -48,10 +52,14 @@
       margin-bottom: 30px;
       color: #fff;
       line-height: 23px;
+      padding-bottom: 10px;
       &::placeholder {
+        position: absolute;
         font-size: 16px;
         line-height: 14px;
         color: #fff;
+        bottom: 10px;
+        // margin-bottom: 10px;
       }
     }
   }

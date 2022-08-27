@@ -79,7 +79,7 @@
                     />
                   </svg>
                 </span>
-                <span class="contacts__text contacts__arrow">Ваш город: Алматы</span>
+                <span class="contacts__text contacts__arrow">Ваш город: <span class="current__city">Алматы</span></span>
               </d>
               <a href="#" class="contacts__item">
                 <span class="contacts__icon contacts__icon_call">
@@ -191,7 +191,7 @@
                 ВИДЫ <span class="text_green">ПЕРФОРИРОВАННЫX<br> ЛИСТОВ</span> В НАЛИЧИИ
             </h2>
             <p class="assortment__description">
-                В изготовлении перфорированных листов применяются нержавеющий, оцинкованный, стальной (горячекатаной и холоднокатаной) или алюминиевый металл. В зависимости от требований предлагаем подходящие по размеру и материалу листы с доставкой по городу Алматы и всей стране. По доступной стоимости предлагаются листы с разной формой отверстий и расположением. 
+                В изготовлении перфорированных листов применяются нержавеющий, оцинкованный, стальной (горячекатаной и холоднокатаной) или алюминиевый металл. В зависимости от требований предлагаем подходящие по размеру и материалу листы с доставкой по городу <span class="current__city">Алматы</span> и всей стране. По доступной стоимости предлагаются листы с разной формой отверстий и расположением. 
             </p>
             <ul class="assortment__list">
                 <li class="assortment__item">
@@ -619,24 +619,20 @@
             <div class="question__right">
               <form action="#" class="question__form form">
                 <label class="question__input" for="name">
-                  Ваше Имя
                 </label>
-                <input type="text" name="name" id="name">
+                <input type="text" name="name" id="name" placeholder="Ваше имя">
   
                 <label class="question__input" for="phone">
-                  +7(___)___-__-__
                 </label>
-                <input type="text" name="phone" id="phone">
+                <input type="text" name="phone" id="phone" placeholder="+7(___)___-__-__">
   
                 <label class="question__input" for="email">
-                  E-mail
                 </label>
-                <input type="email" id="email" name="email">
+                <input type="email" id="email" name="email" placeholder="E-mail">
   
                 <label class="question__input" for="question">
-                  Ваш вопрос
                 </label>
-                <input type="text" id="question" name="question">
+                <input type="text" id="question" name="question" placeholder="Ваш вопрос">
   
                 <button class="button question__button">
                   Оставить заявку
@@ -882,6 +878,18 @@
           </div>
         </div>
       </footer>
+      <div class="modal">
+        <div class="modal__container">
+            <div class="modal__close"></div>
+            <div class="modal__city">Выберите ваш город</div>
+            <div class="modal__buttons">
+              <button class="button modal__button">Алматы</button>
+              <button class="button button_outline modal__button">Нур-Султан</button>
+            </div>
+            <div class="modal__text">От выбора города зависит способ доставки</div>
+        </div>
+      </div>
+
       <script src="./js/main.js"></script>
   </body>
 </html>
