@@ -172,7 +172,7 @@
 
 @media (max-width: 991px) {
   .container {
-    max-width: 659px;
+    max-width: 654px;
     padding: 0px;
   }
   .header {
@@ -185,7 +185,7 @@
     }
     &__wrapper {
       justify-content: space-between;
-      max-width: 659px;
+      max-width: 654px;
       padding: 0px;
     }
     .burger__block {
@@ -436,7 +436,7 @@
     }
     &__company {
       max-width: 183px;
-      margin-right: 80px;
+      margin-right: 75px;
     }
     &__menu {
       width: 148px;
@@ -525,13 +525,13 @@
 
 @media (max-width: 767px) {
   .container {
-    padding: 0px 30px;
-    max-width: 414px;
+    padding: 0px 10px;
+    max-width: 374px;
   }
   .header {
     &__wrapper {
-      padding: 0px 30px;
-      max-width: 414px;
+      padding: 0 10px;
+      max-width: 374px;
     }
     &__logo {
       max-width: 95px;
@@ -606,7 +606,7 @@
     height: 559px;
     &__block {
       padding: 31px 20px;
-      width: 354px;
+      width: 100%;
       top: -65px;
     }
     &__left {
@@ -624,13 +624,14 @@
   }
 
   .area {
-    padding-top: 100px;
+    padding-top: 140px;
     &__title {
       margin: 0;
     }
     &__item {
       width: 100%;
       margin-bottom: 23px;
+      margin-right: 0;
       &:last-child {
         margin-bottom: 0;
       }
@@ -645,6 +646,8 @@
       max-height: 277px;
       margin-top: 0px;
       bottom: 110px;
+      left: 50%;
+      transform: translateX(-50%);
     }
     &__img {
       width: 100%;
@@ -653,7 +656,7 @@
     &__circle {
       width: 105px;
       height: 105px;
-      right: -15px;
+      right: -5px;
       bottom: -40px;
     }
     &__item {
@@ -755,7 +758,7 @@
   }
 
   .title {
-    font-size: 30px;
+    font-size: 29px;
     line-height: 42px;
   }
 }
