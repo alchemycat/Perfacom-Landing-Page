@@ -161,6 +161,12 @@
     }
   }
 
+  .change__city {
+    button {
+      font-size: 14px;
+    }
+  }
+
   .text {
     font-size: 16px;
   }
@@ -498,6 +504,23 @@
 
     &__bottom-right {
       width: 458px;
+    }
+  }
+
+  .change__city {
+    background-color: #202020;
+    button {
+      border: none;
+      font-size: 18px;
+    }
+  }
+
+  .footer__change-city {
+    background-color: #2e2e2e;
+    top: 25px;
+    button {
+      border: 1px solid #fff;
+      font-size: 14px;
     }
   }
 
