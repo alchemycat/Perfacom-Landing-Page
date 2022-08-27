@@ -98,9 +98,6 @@ window.addEventListener("DOMContentLoaded", () => {
           ".assortment__details"
         ).textContent;
 
-        window.localStorage.setItem("order-title", title);
-        window.localStorage.setItem("details", details);
-
         const inputTitle = document.querySelector('[name="order-title"]');
         const inputDetails = document.querySelector('[name="order-details"]');
 
@@ -146,6 +143,9 @@ window.addEventListener("DOMContentLoaded", () => {
     button.addEventListener("click", (e) => {
       e.preventDefault();
 
+      // const alert = document.createElement("div");
+      const alert = document.querySelector(".alert");
+
       let formData = new FormData(form);
 
       let xhr = new XMLHttpRequest();
@@ -154,9 +154,15 @@ window.addEventListener("DOMContentLoaded", () => {
         if (xhr.readyState === 4) {
           if (xhr.status === 200) {
             console.log("Отправлено");
+            alert.innerText == "Заявка успешна отправлена.";
+
+            form.append(alert);
           } else {
-            console.log("Не удалось отправить");
+            alert.innerText ==
+              "Ошибка, не удалось отправить заявку, попробуйте еще раз.";
+            form.append(alert);
           }
+          form.reset();
         }
       };
 
