@@ -1,16 +1,8 @@
 window.addEventListener("DOMContentLoaded", () => {
-  var elements = document.querySelectorAll('[name="phone"');
+  let elements = document.querySelectorAll('[name="phone"');
 
-  IMask(elements[0], {
-    mask: "+{7}(000)000-00-00",
-    lazy: false, // make placeholder always visible
-    placeholderChar: "_", // defaults to '_'
-  });
-  IMask(elements[1], {
-    mask: "+{7}(000)000-00-00",
-    lazy: false, // make placeholder always visible
-    placeholderChar: "_", // defaults to '_'
-  });
+  let im = new Inputmask("+7(999)999-99-99");
+  im.mask(elements);
 
   const burger = document.querySelector(".burger");
   const menu = document.querySelector(".navbar");
@@ -149,6 +141,19 @@ window.addEventListener("DOMContentLoaded", () => {
   }
   smoothScrolling();
 
+  function validate(form) {
+    const inputs = form.querySelectorAll("input");
+    let result = true;
+
+    inputs.forEach((item) => {
+      if (item.value === "") {
+        result = false;
+      }
+    });
+
+    return result;
+  }
+
   function sendRequest(formSelector) {
     const form = document.querySelector(formSelector);
     const button = form.querySelector(".button");
@@ -162,34 +167,36 @@ window.addEventListener("DOMContentLoaded", () => {
         at.remove();
       }
 
-      const alertText = document.createElement("div");
-      alertText.classList.add("alert");
+      console.log(validate(form));
 
-      let formData = new FormData(form);
+      // const alertText = document.createElement("div");
+      // alertText.classList.add("alert");
 
-      let xhr = new XMLHttpRequest();
+      // let formData = new FormData(form);
 
-      xhr.onreadystatechange = function () {
-        if (xhr.readyState === 4) {
-          if (xhr.status === 200) {
-            console.log("Отправлено");
-            alertText.innerText = "Заявка успешно отправлена.";
+      // let xhr = new XMLHttpRequest();
 
-            form.append(alertText);
-          } else {
-            alertText.innerText =
-              "Ошибка, не удалось отправить заявку, попробуйте еще раз.";
-            form.append(alertText);
-          }
-          form.reset();
-        }
-        setTimeout(() => {
-          alertText.remove();
-        }, 3000);
-      };
+      // xhr.onreadystatechange = function () {
+      //   if (xhr.readyState === 4) {
+      //     if (xhr.status === 200) {
+      //       console.log("Отправлено");
+      //       alertText.innerText = "Заявка успешно отправлена.";
 
-      xhr.open("POST", "/mailer/smart.php", true);
-      xhr.send(formData);
+      //       form.append(alertText);
+      //     } else {
+      //       alertText.innerText =
+      //         "Ошибка, не удалось отправить заявку, попробуйте еще раз.";
+      //       form.append(alertText);
+      //     }
+      //     form.reset();
+      //   }
+      //   setTimeout(() => {
+      //     alertText.remove();
+      //   }, 3000);
+      // };
+
+      // xhr.open("POST", "/mailer/smart.php", true);
+      // xhr.send(formData);
     });
   }
 
