@@ -139,7 +139,6 @@
     position: relative;
     z-index: 5;
     display: flex;
-    // width: 565px;
     &__icon {
       margin-right: 6px;
       &_call {
@@ -153,9 +152,9 @@
       display: flex;
       align-items: center;
       transition: all 0.3s ease;
-      // &:hover {
-      // opacity: 0.7;
-      // }
+      border: none;
+      background-color: transparent;
+      outline: none;
 
       &:not(:last-child) {
         margin-right: 20px;

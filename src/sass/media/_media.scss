@@ -443,7 +443,7 @@
     }
     &__company {
       max-width: 183px;
-      margin-right: 75px;
+      // margin-right: 75px;
     }
     &__menu {
       width: 148px;
@@ -464,7 +464,7 @@
     }
     &__contacts {
       width: 220px;
-      height: 413px;
+      // height: 413px;
       align-items: flex-end;
     }
     &__contacts-item {
@@ -492,13 +492,13 @@
       }
     }
     &__map {
-      position: absolute;
-      bottom: 0px;
-      width: 445px;
+      // position: absolute;
+      // bottom: 0px;
+      width: 100%;
       margin-top: 20px;
-      margin-right: 39px;
+      // margin-right: 39px;
       iframe {
-        width: 445px;
+        width: 100%;
       }
     }
 
@@ -702,10 +702,13 @@
       position: relative;
     }
     &__company {
+      display: flex;
+      flex-direction: column;
       margin-right: 0px;
+      align-items: center;
     }
     &__logo {
-      margin: 0 auto;
+      // margin: 0 auto;
     }
     &__description {
       text-align: center;
