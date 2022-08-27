@@ -95,11 +95,13 @@ body {
 
 .js-validate-error-label {
   position: relative;
-  bottom: 30px;
+  bottom: 25px;
+  font-size: 14px;
+  color: #b53029;
 }
 
 .js-validate-error-field {
   border: none !important;
-  border-bottom: 1px solid rgb(184, 17, 17) !important;
-  color: rgb(184, 17, 17) !important;
+  border-bottom: 1px solid #fff !important;
+  color: #fff !important;
 }
