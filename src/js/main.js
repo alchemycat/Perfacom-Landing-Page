@@ -122,41 +122,29 @@ window.addEventListener("DOMContentLoaded", () => {
   }
   smoothScrolling();
 
-  function sendRequest(formSelector, requestType) {
+  function sendRequest(formSelector) {
     const form = document.querySelector(formSelector);
     const button = form.querySelector(".button");
 
     button.addEventListener("click", (e) => {
       e.preventDefault();
-      let data = {};
 
-      if (requestType == "order") {
-        let name = form.querySelector('[name="name"]');
-        let phone = form.querySelector('[name="phone"]');
-        let email = form.querySelector('[name="email"]');
+      let formData = new FormData(form);
 
-        data.name = name.value;
-        data.phone = phone.value;
-        data.email = email.value;
-        data.title = window.localStorage.getItem("order-title");
-        data.details = window.localStorage.getItem("details");
-        data.targetEmail =
-          window.localStorage.getItem("target-email") || "test@gmail.com";
-      }
+      let xhr = new XMLHttpRequest();
 
-      fetch("/server", {
-        method: "POST",
-        headers: {
-          "content-type": "application/json",
-        },
-        body: JSON.stringify(data),
-      }).then((response) => {
-        if (response.ok) {
-          console.log(response);
-        } else {
-          console.log("error");
+      xhr.onreadystatechange = function () {
+        if (xhr.readyState === 4) {
+          if (xhr.status === 200) {
+            console.log("Отправлено");
+          } else {
+            console.log("Не удалось отправить");
+          }
         }
-      });
+      };
+
+      xhr.open("POST", "/mailer/smart.php", true);
+      xhr.send(formData);
     });
   }
 
