@@ -1,4 +1,5 @@
 window.addEventListener("DOMContentLoaded", () => {
+  new WOW().init();
   let elements = document.querySelectorAll('[name="phone"');
 
   let im = new Inputmask("+7(999)999-99-99");

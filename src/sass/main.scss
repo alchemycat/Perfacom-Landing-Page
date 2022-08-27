@@ -60,6 +60,7 @@ p {
 @import "./components/modal/modal";
 @import "./components/changeCity/changeCity.scss";
 @import "./components/alert/alert.scss";
+@import "./libs/animate.min.css";
 
 body {
   color: #fff;
@@ -69,6 +70,7 @@ body {
   max-width: 1270px;
   margin: 0 auto;
   padding: 0 10px;
+  overflow: hidden;
 }
 
 .text {
