@@ -160,6 +160,14 @@
       &:not(:last-child) {
         margin-right: 20px;
       }
+
+      &_choice {
+        position: relative;
+        z-index: 5;
+        &:hover {
+          opacity: 1;
+        }
+      }
     }
 
     &__text {
