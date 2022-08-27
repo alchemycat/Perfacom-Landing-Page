@@ -25,5 +25,9 @@
     "> 1%",
     "maintained node versions",
     "not dead"
-  ]
+  ],
+  "dependencies": {
+    "gulp-webp": "^4.0.1",
+    "imagemin-webp": "^7.0.0"
+  }
 }
