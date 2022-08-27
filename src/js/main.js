@@ -25,6 +25,17 @@ window.addEventListener("DOMContentLoaded", () => {
     currentCity.forEach((item) => {
       item.textContent = city;
     });
+    const adminEmails = document.querySelectorAll('[name="admin_email"]');
+
+    if (city == "Алматы") {
+      adminEmails.forEach((item) => {
+        item.value = "vtiw27@gmail.com";
+      });
+    } else {
+      adminEmails.forEach((item) => {
+        item.value = "colacat1927@gmail.com";
+      });
+    }
   }
 
   closeButtons.forEach((button) => {
@@ -90,6 +101,12 @@ window.addEventListener("DOMContentLoaded", () => {
         window.localStorage.setItem("order-title", title);
         window.localStorage.setItem("details", details);
 
+        const inputTitle = document.querySelector('[name="order-title"]');
+        const inputDetails = document.querySelector('[name="order-details"]');
+
+        inputTitle.value = title;
+        inputDetails.value = details;
+
         orderModal.classList.add("modal_active");
       });
     });
@@ -148,5 +165,6 @@ window.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  sendRequest("#order-form", "order");
+  sendRequest("#order-form");
+  sendRequest("#question-form");
 });
