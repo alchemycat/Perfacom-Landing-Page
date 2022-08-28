@@ -370,7 +370,7 @@
     }
     &__form {
       width: 100%;
-      min-height: 427px;
+      min-height: 420px;
       label {
         font-style: normal;
         font-weight: 400;
@@ -547,6 +547,59 @@
     font-size: 14px;
     margin-right: 0;
     margin-bottom: 19px;
+  }
+}
+
+@media (max-height: 600px) {
+  .question {
+    &__form {
+      margin-top: 15px;
+      min-height: 100%;
+    }
+    &__input {
+      input {
+        margin-bottom: 20px;
+      }
+    }
+  }
+
+  .modal {
+    &__container {
+      padding: 10px 20px;
+    }
+    &__title {
+      font-size: 25px;
+      line-height: 25px;
+    }
+    &__buttons {
+      margin-top: 15px;
+    }
+  }
+
+  .js-validate-error-label {
+    bottom: 10px !important;
+    font-size: 12px;
+  }
+}
+
+@media (max-height: 400px) {
+  .question {
+    &__form {
+      margin-top: 15px;
+      min-height: 100%;
+    }
+  }
+  .modal {
+    &__container {
+      padding: 10px 20px;
+    }
+    &__title {
+      font-size: 20px;
+      line-height: 20px;
+    }
+    &__buttons {
+      margin-top: 5px;
+    }
   }
 }
 
@@ -859,20 +912,6 @@
   .modal {
     &__container {
       max-width: 354px;
-    }
-  }
-}
-
-@media (max-height: 500px) {
-  .question {
-    &__form {
-      min-height: 300px;
-    }
-  }
-
-  .modal {
-    &__container {
-      padding: 10px 20px;
     }
   }
 }
