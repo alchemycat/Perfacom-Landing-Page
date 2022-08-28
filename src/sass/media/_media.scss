@@ -903,6 +903,9 @@
   .footer {
     &__contacts {
       height: 167px;
+      align-items: center;
+      flex-direction: column;
+      flex-wrap: nowrap;
       &-item {
         width: 50%;
       }

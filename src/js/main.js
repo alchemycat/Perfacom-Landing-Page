@@ -2,14 +2,38 @@ window.addEventListener("DOMContentLoaded", () => {
   //Данные для добавления на страницу
   const data = {
     almaty: {
+      introText: "Разных размеров и типов перфорации",
+      introTitle:
+        '<span class="text_green">ПЕРФОРИРОВАННЫЕ ЛИСТЫ</span> ВЫСОКОГО КАЧЕСТВА',
+      introSubtitle: "Доставка в любых объемах по Казахстану",
+      assortmentTitle:
+        'ВИДЫ <span class="text_green">ПЕРФОРИРОВАННЫX<br>ЛИСТОВ</span> В НАЛИЧИИ',
+      assortmentText:
+        "В изготовлении перфорированных листов применяются нержавеющий, оцинкованный, стальной (горячекатаной и холоднокатаной) или алюминиевый металл. В зависимости от требований предлагаем подходящие по размеру и материалу листы с доставкой по городу Алматы и всей стране. По доступной стоимости предлагаются листы с разной формой отверстий и расположением.",
+      questionTitle:
+        'ОСТАЛИСЬ ВОПРОСЫ? <span class="text_green">ОСТАВЬТЕ ЗАЯВКУ</span>',
+      questionText:
+        "Благодаря большому ассортименту мы подберем перфолисты под любые требования заказчика. Предлагаем листы в нестандартных размерах, любой толщины и видом перфорации. Для заказа в Казахстане нажимайте “Оставить заявку” и специалисты свяжутся с Вами. ",
       name: "DANEX LTD-ALMATY",
       email: "almaty@perfograd.kz",
-      phone: "+8 (771) 033 0434",
+      phone: "+7 (771) 033 0434",
       address: "г.Алматы<br>ул. Ауэзова 1б",
       mapLink:
         "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d769.8668036590985!2d76.90262949727055!3d43.23821574705604!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x388369fca7ab5057%3A0x735672ae89d4d07d!2sDANEX%20LTD-ALMATY!5e0!3m2!1sru!2sua!4v1661700274780!5m2!1sru!2sua",
     },
     nursultan: {
+      introText: "Разных размеров и типов перфорации",
+      introTitle:
+        '<span class="text_green">ПЕРФОРИРОВАННЫЕ ЛИСТЫ</span> ВЫСОКОГО КАЧЕСТВА',
+      introSubtitle: "Доставка в любых объемах по Казахстану",
+      assortmentTitle:
+        'ВИДЫ <span class="text_green">ПЕРФОРИРОВАННЫX<br>ЛИСТОВ</span> В НАЛИЧИИ',
+      assortmentText:
+        "В изготовлении перфорированных листов применяются нержавеющий, оцинкованный, стальной (горячекатаной и холоднокатаной) или алюминиевый металл. В зависимости от требований предлагаем подходящие по размеру и материалу листы с доставкой по городу Нур-Султан и всей стране. По доступной стоимости предлагаются листы с разной формой отверстий и расположением.",
+      questionTitle:
+        'ОСТАЛИСЬ ВОПРОСЫ? <span class="text_green">ОСТАВЬТЕ ЗАЯВКУ</span>',
+      questionText:
+        "Благодаря большому ассортименту мы подберем перфолисты под любые требования заказчика. Предлагаем листы в нестандартных размерах, любой толщины и видом перфорации. Для заказа в Казахстане нажимайте “Оставить заявку” и специалисты свяжутся с Вами.",
       name: "DANEX LTD",
       email: "Danexltd@mail.ru",
       phone: "+ 7 (707) 550-84-88",
@@ -194,6 +218,14 @@ window.addEventListener("DOMContentLoaded", () => {
     phoneElementSelector,
     mapIframeSelector,
     addressSelector,
+    namesSelector,
+    introTextSelector,
+    introTitleSelector,
+    introSubtitleSelector,
+    assortmentTitleSelector,
+    assortmentTextSelector,
+    questionTitleSelector,
+    questionTextSelector,
     data
   ) {
     const cityElements = document.querySelectorAll(cityElementSelector);
@@ -202,7 +234,47 @@ window.addEventListener("DOMContentLoaded", () => {
     const phones = document.querySelectorAll(phoneElementSelector);
     const map = document.querySelector(mapIframeSelector);
     const address = document.querySelector(addressSelector);
-    const names = document.querySelectorAll(".company-name");
+    const names = document.querySelectorAll(namesSelector);
+    const introText = document.querySelector(introTextSelector);
+    const introSubtitle = document.querySelector(introSubtitleSelector);
+    const introTitle = document.querySelector(introTitleSelector);
+    const assortmentTitle = document.querySelector(assortmentTitleSelector);
+    const assortentText = document.querySelector(assortmentTextSelector);
+    const questionTitle = document.querySelector(questionTitleSelector);
+    const questionText = document.querySelector(questionTextSelector);
+
+    function setData(data) {
+      try {
+        introText.textContent = data.introText;
+        introTitle.innerHTML = data.introTitle;
+        introSubtitle.textContent = data.introSubtitle;
+        assortmentTitle.innerHTML = data.assortmentTitle;
+        assortentText.textContent = data.assortmentText;
+        questionTitle.innerHTML = data.questionTitle;
+        questionText.textContent = data.questionText;
+
+        map.src = data.mapLink;
+        address.innerHTML = data.address;
+
+        names.forEach((item) => {
+          item.innerHTML = data.name;
+        });
+
+        adminEmails.forEach((item) => {
+          item.value = data.email;
+        });
+
+        phones.forEach((phone) => {
+          phone.textContent = data.phone;
+          phone.href = `tel:${clearPhone(data.phone)}`;
+        });
+
+        email.innerHTML = data.email;
+        email.href = `mailto:${data.email}`;
+      } catch (err) {
+        console.log(err);
+      }
+    }
 
     const city = window.localStorage.getItem(key) || "Нур-Султан";
 
@@ -213,41 +285,9 @@ window.addEventListener("DOMContentLoaded", () => {
 
     //Замена данных
     if (city == "Алматы") {
-      map.src = data.almaty.mapLink;
-      address.innerHTML = data.almaty.address;
-
-      names.forEach((item) => {
-        item.innerHTML = data.almaty.name;
-      });
-
-      adminEmails.forEach((item) => {
-        item.value = data.almaty.email;
-      });
-
-      phones.forEach((phone) => {
-        phone.textContent = data.almaty.phone;
-        phone.href = `tel:${clearPhone(data.almaty.phone)}`;
-      });
-
-      email.innerHTML = data.almaty.email;
-      email.href = `mailto:${data.almaty.email}`;
+      setData(data.almaty);
     } else {
-      map.src = data.nursultan.mapLink;
-      address.innerHTML = data.nursultan.address;
-
-      names.forEach((item) => {
-        item.textContent = data.nursultan.name;
-      });
-
-      adminEmails.forEach((item) => {
-        item.value = data.nursultan.email;
-      });
-      phones.forEach((phone) => {
-        phone.textContent = data.nursultan.phone;
-        phone.href = `tel:${clearPhone(data.nursultan.phone)}`;
-      });
-      email.textContent = data.nursultan.email;
-      email.href = `mailto:${data.nursultan.email}`;
+      setData(data.nursultan);
     }
 
     //Вспомогательная функция для удаления лишних символов из телефона
@@ -264,6 +304,14 @@ window.addEventListener("DOMContentLoaded", () => {
     ".contact-phone",
     ".footer__map iframe",
     ".address",
+    ".company-name",
+    ".intro__text",
+    ".intro__title",
+    ".intro__subtitle",
+    ".assortment__title",
+    ".assortment__description",
+    ".question__title",
+    ".question__text",
     data
   ); //Вызываем функцию для изменения данных на странице
 
@@ -294,6 +342,14 @@ window.addEventListener("DOMContentLoaded", () => {
           ".contact-phone",
           ".footer__map iframe",
           ".address",
+          ".company-name",
+          ".intro__text",
+          ".intro__title",
+          ".intro__subtitle",
+          ".assortment__title",
+          ".assortment__description",
+          ".question__title",
+          ".question__text",
           data
         ); //Вызываем функцию для изменения данных на странице
       });
