@@ -7,7 +7,11 @@
     justify-content: space-between;
   }
   &__logo {
-    width: 123px;
+    max-width: 123px;
+    img {
+      max-width: 123px;
+      height: auto;
+    }
   }
   &__company {
     max-width: 195px;

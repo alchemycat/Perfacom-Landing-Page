@@ -36,8 +36,8 @@
   &__img {
     display: block;
     object-fit: cover;
-    // max-width: 535px;
     width: 100%;
+    height: auto;
   }
 
   &__circle {
@@ -45,6 +45,7 @@
     bottom: 30px;
     left: -110px;
     width: 220px;
+    height: auto;
     object-fit: cover;
   }
   &__buttons {

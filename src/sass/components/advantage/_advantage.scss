@@ -19,11 +19,13 @@
     width: 58%;
   }
   &__img {
-    // max-width: 504px;
     width: 100%;
+    height: auto;
   }
   &__circle {
     position: absolute;
+    width: 221px;
+    height: auto;
     border-radius: 50%;
     bottom: -85px;
     right: -40px;
