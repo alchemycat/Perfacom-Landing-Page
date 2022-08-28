@@ -10,8 +10,6 @@
       max-width: 100px;
     }
     .navbar {
-      // width: 850px;
-
       &__item {
         padding-right: 4px;
         padding-left: 4px;
@@ -98,6 +96,9 @@
     &__img {
       width: 80px;
       height: 80px;
+    }
+    &__item {
+      width: 31%;
     }
   }
   .question {

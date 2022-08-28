@@ -140,6 +140,7 @@ window.addEventListener("DOMContentLoaded", () => {
         triggerButton.forEach((btn) => {
           btn.addEventListener("click", () => {
             modal.classList.add(modalActiveClass);
+            document.body.style.overflow = "hidden";
           });
         });
       } else {
@@ -164,9 +165,7 @@ window.addEventListener("DOMContentLoaded", () => {
       const closeButton = modal.querySelector(closeButtonSelector);
 
       closeButton.addEventListener("click", () => {
-        closeButton.parentElement.parentElement.classList.remove(
-          modalActiveClass
-        );
+        modal.setAttribute("class", "modal");
         document.body.style.overflow = "visible";
       });
 
