@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      http-equiv="X-UA-Compatible"
+      content="IE=edge" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0" />
+    <title>Test</title>
+  </head>
+  <body>
+    <script>
+      const loc = window.location.pathname;
+      const home = "https://perfocom.kz/";
+      if (loc.includes("almaty")) {
+        window.localStorage.setItem("city", "Алматы");
+        window.location.href = home;
+      } else if (location.contains("nursultan")) {
+        window.localStorage.setItem("city", "Нур-Султан");
+        window.location.href = home;
+      }
+    </script>
+  </body>
+</html>

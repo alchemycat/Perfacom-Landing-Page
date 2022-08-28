@@ -2,13 +2,15 @@ window.addEventListener("DOMContentLoaded", () => {
   //Данные для добавления на страницу
   const data = {
     almaty: {
+      name: "DANEX LTD-ALMATY",
       email: "almaty@perfograd.kz",
-      phone: "+ 7 (707) 550-84-88",
-      address: "Г. Алматы <br>Ул Сатпаева 29 Д блок А",
+      phone: "+8 (771) 033 0434",
+      address: "г.Алматы<br>ул. Ауэзова 1б",
       mapLink:
-        "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d227.24154594518748!2d76.91116643851085!3d43.2367797677848!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3883692e6aab55e7%3A0x1862adda45c8b8aa!2zMjnQtCwg0JDQu9C80LDRgtGLIDA1MDAwMCwg0JrQsNC30LDRhdGB0YLQsNC9!5e0!3m2!1sru!2sua!4v1661664021490!5m2!1sru!2sua",
+        "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d769.8668036590985!2d76.90262949727055!3d43.23821574705604!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x388369fca7ab5057%3A0x735672ae89d4d07d!2sDANEX%20LTD-ALMATY!5e0!3m2!1sru!2sua!4v1661700274780!5m2!1sru!2sua",
     },
     nursultan: {
+      name: "DANEX LTD",
       email: "Danexltd@mail.ru",
       phone: "+ 7 (707) 550-84-88",
       address: `Г. Нур-Султан<br>
@@ -200,8 +202,9 @@ window.addEventListener("DOMContentLoaded", () => {
     const phones = document.querySelectorAll(phoneElementSelector);
     const map = document.querySelector(mapIframeSelector);
     const address = document.querySelector(addressSelector);
+    const names = document.querySelectorAll(".company-name");
 
-    const city = window.localStorage.getItem(key) || "Алматы";
+    const city = window.localStorage.getItem(key) || "Нур-Султан";
 
     //Заменяем город на выбранный
     cityElements.forEach((item) => {
@@ -213,6 +216,10 @@ window.addEventListener("DOMContentLoaded", () => {
       map.src = data.almaty.mapLink;
       address.innerHTML = data.almaty.address;
 
+      names.forEach((item) => {
+        item.innerHTML = data.almaty.name;
+      });
+
       adminEmails.forEach((item) => {
         item.value = data.almaty.email;
       });
@@ -222,11 +229,16 @@ window.addEventListener("DOMContentLoaded", () => {
         phone.href = `tel:${clearPhone(data.almaty.phone)}`;
       });
 
-      email.textContent = data.almaty.email;
+      email.innerHTML = data.almaty.email;
       email.href = `mailto:${data.almaty.email}`;
     } else {
       map.src = data.nursultan.mapLink;
       address.innerHTML = data.nursultan.address;
+
+      names.forEach((item) => {
+        item.textContent = data.nursultan.name;
+      });
+
       adminEmails.forEach((item) => {
         item.value = data.nursultan.email;
       });
