@@ -215,6 +215,7 @@ window.addEventListener("DOMContentLoaded", () => {
         inputDetails.value = details;
 
         orderModal.classList.add("modal_active");
+        document.body.style.overflow = "hidden";
       });
     });
   }
@@ -253,6 +254,7 @@ window.addEventListener("DOMContentLoaded", () => {
     buttons.forEach((btn) => {
       btn.addEventListener("click", () => {
         modal.classList.add("modal_active");
+        document.body.style.overflow = "hidden";
       });
     });
   }
@@ -263,6 +265,7 @@ window.addEventListener("DOMContentLoaded", () => {
     item.addEventListener("click", (e) => {
       if (e.target.classList.contains("modal_active")) {
         e.target.classList.remove("modal_active");
+        document.body.style.overflow = "visible";
       }
     });
   });
