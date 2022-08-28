@@ -619,20 +619,22 @@
             <div class="question__right animate__animated animate__fadeIn wow">
               <form action="#" class="question__form form" id="question-form">
                 <label class="question__input" for="name">
+                  <input type="text" name="name" id="name" placeholder="Ваше имя" data-validate-field="name">
+
                 </label>
-                <input type="text" name="name" id="name" placeholder="Ваше имя" data-validate-field="name">
   
                 <label class="question__input" for="phone">
+                  <input type="text" name="phone" id="phone" placeholder="+7(___)___-__-__" data-validate-field="phone">
+
                 </label>
-                <input type="text" name="phone" id="phone" placeholder="+7(___)___-__-__" data-validate-field="phone">
   
-                <label class="question__input"">
+                <label class="question__input">
+                  <input type="email"  name="email" placeholder="E-mail" data-validate-field="email">
                 </label>
-                <input type="email"  name="email" placeholder="E-mail" data-validate-field="email">
   
                 <label class="question__input" for="question">
+                  <input type="text" id="question" name="question" placeholder="Ваш вопрос">
                 </label>
-                <input type="text" id="question" name="question" placeholder="Ваш вопрос">
                 <input type="hidden" name="admin_email" value="">
                 <input type="hidden" name="type" value="Вопрос от посетителя">
   
@@ -890,16 +892,16 @@
             <div class="modal__title">Заказать</div>
             <form action="#" class="question__form form" id="order-form">
               <label class="question__input">
+                <input type="text" name="name" placeholder="Ваше имя" data-validate-field="name">
               </label>
-              <input type="text" name="name" placeholder="Ваше имя" data-validate-field="name">
 
               <label class="question__input">
+                <input type="text" name="phone" placeholder="+7(___)___-__-__" data-validate-field="phone">
               </label>
-              <input type="text" name="phone" placeholder="+7(___)___-__-__" data-validate-field="phone">
 
               <label class="question__input" >
+                <input type="email" name="email" placeholder="E-mail" data-validate-field="email">
               </label>
-              <input type="email" name="email" placeholder="E-mail" data-validate-field="email">
               <input type="hidden" name="admin_email" value="">
               <input type="hidden" name="order-title">
               <input type="hidden" name="order-details">
@@ -924,16 +926,16 @@
             <div class="modal__title">Заказать звонок</div>
             <form action="#" class="question__form form" id="call-form">
               <label class="question__input">
+                <input type="text" name="name" placeholder="Ваше имя" data-validate-field="name">
               </label>
-              <input type="text" name="name" placeholder="Ваше имя" data-validate-field="name">
 
               <label class="question__input">
+                <input type="text" name="phone" placeholder="+7(___)___-__-__" data-validate-field="phone">
               </label>
-              <input type="text" name="phone" placeholder="+7(___)___-__-__" data-validate-field="phone">
 
               <label class="question__input" >
+                <input type="email"  name="email" placeholder="E-mail" data-validate-field="email">
               </label>
-              <input type="email"  name="email" placeholder="E-mail" data-validate-field="email">
               
               <input type="hidden" name="admin_email" value="">
               <input type="hidden" name="call_order" value="true">

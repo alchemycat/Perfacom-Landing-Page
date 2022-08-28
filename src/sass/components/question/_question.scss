@@ -38,14 +38,17 @@
     flex-direction: column;
     justify-content: space-between;
     label {
+      width: 100%;
       margin-bottom: 0;
-      position: relative;
+      // position: relative;
       transition: all 0.3s ease;
       &.active {
         transform: translateY(-10px);
       }
     }
     input {
+      position: relative;
+      width: 100%;
       background-color: transparent;
       border: none;
       outline: none;
