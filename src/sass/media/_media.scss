@@ -345,7 +345,7 @@
 
   .question {
     background-size: cover;
-    height: 397px;
+    height: 420px;
     &__title.title {
       font-weight: 400;
       font-size: 36px;
@@ -624,7 +624,7 @@
   }
 
   .question {
-    height: 559px;
+    height: 589px;
     &__block {
       padding: 31px 20px;
       width: 100%;
@@ -735,10 +735,13 @@
       width: 100%;
       height: 167px;
       align-items: flex-start;
+
       &-item {
         width: 50%;
         // justify-content: center;
-
+        a {
+          font-size: 13px;
+        }
         &:not(:last-child) {
           margin-bottom: 17px;
         }
