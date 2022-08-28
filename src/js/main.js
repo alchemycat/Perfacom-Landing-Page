@@ -1,10 +1,37 @@
 window.addEventListener("DOMContentLoaded", () => {
+  //Данные для добавления на страницу
+  const data = {
+    almaty: {
+      email: "almaty@perfograd.kz",
+      phone: "+ 7 (707) 550-84-88",
+      address: "Г. Алматы <br>Ул Сатпаева 29 Д блок А",
+      mapLink:
+        "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d227.24154594518748!2d76.91116643851085!3d43.2367797677848!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3883692e6aab55e7%3A0x1862adda45c8b8aa!2zMjnQtCwg0JDQu9C80LDRgtGLIDA1MDAwMCwg0JrQsNC30LDRhdGB0YLQsNC9!5e0!3m2!1sru!2sua!4v1661664021490!5m2!1sru!2sua",
+    },
+    nursultan: {
+      email: "Danexltd@mail.ru",
+      phone: "+ 7 (707) 550-84-88",
+      address: `Г. Нур-Султан<br>
+      УЛ. Пушкина, 42 оф. 33`,
+      mapLink:
+        "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d1413.92990659563!2d71.48702208096599!3d51.17832002712885!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x424581aa16dcfb93%3A0x76b3bab62ea9361b!2z0YPQuy4g0JDQu9C10LrRgdCw0L3QtNGA0LAg0J_Rg9GI0LrQuNC90LAgNDIsINCd0YPRgC3QodGD0LvRgtCw0L0gMDIwMDAwLCDQmtCw0LfQsNGF0YHRgtCw0L0!5e0!3m2!1sru!2sua!4v1661523309333!5m2!1sru!2sua",
+    },
+  };
+
+  //Анимации
   new WOW().init();
-  let elements = document.querySelectorAll('[name="phone"');
 
-  let im = new Inputmask("+7(999)999-99-99");
-  im.mask(elements);
+  //Маска для инпутов
+  function createMask(inputsSelector, mask) {
+    let inputs = document.querySelectorAll(inputsSelector);
 
+    let im = new Inputmask(mask);
+    im.mask(inputs);
+  }
+
+  createMask('[name="phone"', "+7(999)999-99-99");
+
+  //Валидация форм
   function validateForms(selector, rules) {
     new window.JustValidate(selector, {
       rules: rules,
@@ -33,7 +60,6 @@ window.addEventListener("DOMContentLoaded", () => {
         xhr.onreadystatechange = function () {
           if (xhr.readyState === 4) {
             if (xhr.status === 200) {
-              console.log("Отправлено");
               alertText.innerText = "Заявка успешно отправлена.";
 
               form.append(alertText);
@@ -73,90 +99,167 @@ window.addEventListener("DOMContentLoaded", () => {
     email: { required: true, email: true },
   });
 
-  const burger = document.querySelector(".burger");
-  const menu = document.querySelector(".navbar");
+  //Бургер меню
+  function toggleBurger(
+    burgerSelector,
+    navbarSelector,
+    burgerActiveClass,
+    navbarActiveClass
+  ) {
+    const burger = document.querySelector(burgerSelector);
+    const menu = document.querySelector(navbarSelector);
 
-  burger.addEventListener("click", () => {
-    burger.classList.toggle("burger_active");
-    menu.classList.toggle("navbar_active");
-  });
-
-  const modal = document.querySelector("#city");
-  const city = window.localStorage.getItem("city");
-
-  if (!city) {
-    modal.classList.add("modal_active");
-    document.body.style.overflow = "hidden";
+    burger.addEventListener("click", () => {
+      burger.classList.toggle(burgerActiveClass);
+      menu.classList.toggle(navbarActiveClass);
+    });
   }
 
-  const closeButtons = document.querySelectorAll(".modal__close");
+  toggleBurger(".burger", ".navbar", "burger_active", "navbar_active");
 
-  setCity();
+  //Модальные окна
 
-  function setCity() {
-    const currentCity = document.querySelectorAll(".current__city");
-    const city = window.localStorage.getItem("city") || "Алматы";
-    currentCity.forEach((item) => {
+  function modals(
+    triggerSelector,
+    modalSelector,
+    closeButtonSelector,
+    modalActiveClass,
+    storageKey = null
+  ) {
+    const modal = document.querySelector(modalSelector);
+
+    let triggerButton = false;
+
+    if (triggerSelector) {
+      triggerButton = document.querySelectorAll(triggerSelector);
+    }
+
+    //Показываем модалку
+    function showModal(triggerButton, modal, modalActiveClass, key = null) {
+      if (triggerButton) {
+        triggerButton.forEach((btn) => {
+          btn.addEventListener("click", () => {
+            modal.classList.add(modalActiveClass);
+          });
+        });
+      } else {
+        let city;
+
+        if (key) {
+          city = window.localStorage.getItem(storageKey);
+        }
+
+        if (!city) {
+          modal.classList.add(modalActiveClass);
+          document.body.style.overflow = "hidden";
+        }
+      }
+    }
+
+    showModal(triggerButton, modal, modalActiveClass, storageKey); //Вызываем модальное окно с проверкой локал сторедж
+
+    //Закрытие модального окна
+
+    function closeModal(modal, closeButtonSelector, modalActiveClass) {
+      const closeButton = modal.querySelector(closeButtonSelector);
+
+      closeButton.addEventListener("click", () => {
+        closeButton.parentElement.parentElement.classList.remove(
+          modalActiveClass
+        );
+        document.body.style.overflow = "visible";
+      });
+
+      modal.addEventListener("click", (e) => {
+        if (e.target.classList.contains(modalActiveClass)) {
+          e.target.classList.remove(modalActiveClass);
+          document.body.style.overflow = "visible";
+        }
+      });
+    }
+    closeModal(modal, closeButtonSelector, modalActiveClass); //Вызываем функцию для скрытия модалок
+  }
+
+  modals(false, "#city", ".modal__close", "modal_active", "city"); //Вызываем блок который отвечает за модалки
+  modals(".assortment__button", "#order", ".modal__close", "modal_active"); //Вызываем модалки для заказов
+  modals(".call_button", "#call", ".modal__close", "modal_active"); //Вызываем модалки для заказов
+
+  //Функция для изменения данных на странице
+  function changePageData(
+    cityElementSelector,
+    key,
+    targetEmailSelector,
+    emailElementSelector,
+    phoneElementSelector,
+    mapIframeSelector,
+    addressSelector,
+    data
+  ) {
+    const cityElements = document.querySelectorAll(cityElementSelector);
+    const adminEmails = document.querySelectorAll(targetEmailSelector);
+    const email = document.querySelector(emailElementSelector);
+    const phones = document.querySelectorAll(phoneElementSelector);
+    const map = document.querySelector(mapIframeSelector);
+    const address = document.querySelector(addressSelector);
+
+    const city = window.localStorage.getItem(key) || "Алматы";
+
+    //Заменяем город на выбранный
+    cityElements.forEach((item) => {
       item.textContent = city;
     });
-    const adminEmails = document.querySelectorAll('[name="admin_email"]');
-    const email = document.querySelector(".contact-email");
-    const phones = document.querySelectorAll(".contact-phone");
-    const map = document.querySelector(".footer__map iframe");
-    const address = document.querySelector(".address");
 
-    const almatyEmail = "almaty@perfograd.kz";
-    const nursultanEmail = "Danexltd@mail.ru";
-    const almatyPhone = "+ 7 (707) 550-84-88";
-    const nursultanPhone = "+ 7 (707) 550-84-88";
-    const almatyAddress = `Г. Алматы <br>Ул Сатпаева 29 Д блок А`;
-    const nursultanAddress = `Г. Нур-Султан<br>
-    УЛ. Пушкина, 42 оф. 33`;
-
-    const almatyMap =
-      "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d227.24154594518748!2d76.91116643851085!3d43.2367797677848!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3883692e6aab55e7%3A0x1862adda45c8b8aa!2zMjnQtCwg0JDQu9C80LDRgtGLIDA1MDAwMCwg0JrQsNC30LDRhdGB0YLQsNC9!5e0!3m2!1sru!2sua!4v1661664021490!5m2!1sru!2sua";
-    const nursultanMap =
-      "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d1413.92990659563!2d71.48702208096599!3d51.17832002712885!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x424581aa16dcfb93%3A0x76b3bab62ea9361b!2z0YPQuy4g0JDQu9C10LrRgdCw0L3QtNGA0LAg0J_Rg9GI0LrQuNC90LAgNDIsINCd0YPRgC3QodGD0LvRgtCw0L0gMDIwMDAwLCDQmtCw0LfQsNGF0YHRgtCw0L0!5e0!3m2!1sru!2sua!4v1661523309333!5m2!1sru!2sua";
-
-    const almatyClearPhone = almatyPhone.match(/(\+|\d)/g).join("");
-    const nursultanClearPhone = nursultanPhone.match(/(\+|\d)/g).join("");
-
+    //Замена данных
     if (city == "Алматы") {
-      map.src = almatyMap;
-      address.innerHTML = almatyAddress;
+      map.src = data.almaty.mapLink;
+      address.innerHTML = data.almaty.address;
+
       adminEmails.forEach((item) => {
-        item.value = almatyEmail;
+        item.value = data.almaty.email;
       });
+
       phones.forEach((phone) => {
-        phone.textContent = almatyPhone;
-        phone.href = `tel:${almatyClearPhone}`;
+        phone.textContent = data.almaty.phone;
+        phone.href = `tel:${clearPhone(data.almaty.phone)}`;
       });
-      email.textContent = almatyEmail;
-      email.href = `mailto:${almatyEmail}`;
+
+      email.textContent = data.almaty.email;
+      email.href = `mailto:${data.almaty.email}`;
     } else {
-      map.src = nursultanMap;
-      address.innerHTML = nursultanAddress;
+      map.src = data.nursultan.mapLink;
+      address.innerHTML = data.nursultan.address;
       adminEmails.forEach((item) => {
-        item.value = nursultanEmail;
+        item.value = data.nursultan.email;
       });
       phones.forEach((phone) => {
-        phone.textContent = nursultanPhone;
-        phone.href = `tel:${nursultanClearPhone}`;
+        phone.textContent = data.nursultan.phone;
+        phone.href = `tel:${clearPhone(data.nursultan.phone)}`;
       });
-      email.textContent = nursultanEmail;
-      email.href = `mailto:${nursultanEmail}`;
+      email.textContent = data.nursultan.email;
+      email.href = `mailto:${data.nursultan.email}`;
+    }
+
+    //Вспомогательная функция для удаления лишних символов из телефона
+    function clearPhone(phone) {
+      return phone.match(/(\+|\d)/g).join("");
     }
   }
 
-  closeButtons.forEach((button) => {
-    button.addEventListener("click", () => {
-      button.parentElement.parentElement.classList.remove("modal_active");
-      document.body.style.overflow = "visible";
-    });
-  });
+  changePageData(
+    ".current__city",
+    "city",
+    '[name="admin_email"]',
+    ".contact-email",
+    ".contact-phone",
+    ".footer__map iframe",
+    ".address",
+    data
+  ); //Вызываем функцию для изменения данных на странице
 
-  function changeCity(buttonsSelector, modalActiveClass = null) {
+  //Изменение города
+  function changeCity(buttonsSelector, modalSelector, modalActiveClass = null) {
     const buttons = document.querySelectorAll(buttonsSelector);
+    const modal = document.querySelector(modalSelector);
 
     buttons.forEach((button) => {
       button.addEventListener("click", (e) => {
@@ -172,14 +275,24 @@ window.addEventListener("DOMContentLoaded", () => {
           footerList.classList.remove("change__city_active");
         } catch {}
 
-        setCity();
+        changePageData(
+          ".current__city",
+          "city",
+          '[name="admin_email"]',
+          ".contact-email",
+          ".contact-phone",
+          ".footer__map iframe",
+          ".address",
+          data
+        ); //Вызываем функцию для изменения данных на странице
       });
     });
   }
 
-  changeCity(".modal__button", "modal_active");
-  changeCity(".change__city-button");
+  changeCity(".modal__button", "#city", "modal_active"); //Подключаем функцию ко всем кнопкам
+  changeCity(".change__city-button"); //Подключаем функцию ко всем кнопкам
 
+  //Переключаем список городов
   function toggleList(buttonSelector, listSelector) {
     const changeButton = document.querySelector(buttonSelector);
 
@@ -191,12 +304,12 @@ window.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  toggleList(".contacts__item_choice", ".header__change-city");
-  toggleList(".footer__select-city", ".footer__change-city");
+  toggleList(".contacts__item_choice", ".header__change-city"); //Подключаем функцию ко всем кнопкам
+  toggleList(".footer__select-city", ".footer__change-city"); //Подключаем функцию ко всем кнопкам
 
+  //Сохраняем данные для заказа
   function createOrder() {
     const orderButtons = document.querySelectorAll(".assortment__button");
-    const orderModal = document.querySelector("#order");
 
     orderButtons.forEach((orderButton) => {
       orderButton.addEventListener("click", (e) => {
@@ -204,6 +317,7 @@ window.addEventListener("DOMContentLoaded", () => {
         const parent = orderButton.parentElement;
 
         const title = parent.querySelector(".assortment__name").textContent;
+
         const details = parent.querySelector(
           ".assortment__details"
         ).textContent;
@@ -213,15 +327,13 @@ window.addEventListener("DOMContentLoaded", () => {
 
         inputTitle.value = title;
         inputDetails.value = details;
-
-        orderModal.classList.add("modal_active");
-        document.body.style.overflow = "hidden";
       });
     });
   }
 
-  createOrder();
+  createOrder(); //Вызываем функцию которая сохраняет данные для заказов
 
+  //Плавный скролл к секциям
   function smoothScrolling() {
     let anchorlinks = document.querySelectorAll('a[href^="#"]');
 
@@ -245,28 +357,6 @@ window.addEventListener("DOMContentLoaded", () => {
       });
     }
   }
+
   smoothScrolling();
-
-  function orderCall() {
-    const buttons = document.querySelectorAll(".call_button");
-    const modal = document.querySelector("#call");
-
-    buttons.forEach((btn) => {
-      btn.addEventListener("click", () => {
-        modal.classList.add("modal_active");
-        document.body.style.overflow = "hidden";
-      });
-    });
-  }
-
-  orderCall();
-
-  document.querySelectorAll(".modal").forEach((item) => {
-    item.addEventListener("click", (e) => {
-      if (e.target.classList.contains("modal_active")) {
-        e.target.classList.remove("modal_active");
-        document.body.style.overflow = "visible";
-      }
-    });
-  });
 });
