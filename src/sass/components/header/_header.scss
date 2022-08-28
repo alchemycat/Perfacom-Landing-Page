@@ -50,6 +50,8 @@
       }
     }
     &__text {
+      color: #ffffff;
+      text-decoration: none;
       margin-top: 3px;
     }
     &__item {
@@ -57,7 +59,7 @@
       align-items: center;
       font-size: 14px;
       line-height: 30px;
-      color: #ffffff;
+
       &:hover {
         text-decoration: none;
         color: #fff;
@@ -147,8 +149,6 @@
     }
 
     &__item {
-      color: #fff;
-      text-decoration: none;
       display: flex;
       align-items: center;
       transition: all 0.3s ease;
@@ -157,12 +157,14 @@
       outline: none;
       cursor: pointer;
 
+      a {
+        color: #fff;
+        text-decoration: none;
+      }
+
       &:not(:last-child) {
         margin-right: 20px;
       }
-      // &:nth-child(3) {
-      //   margin-right: 0px;
-      // }
 
       &_choice {
         position: relative;

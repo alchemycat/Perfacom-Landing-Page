@@ -1,3 +1,5 @@
+@import "./fonts/fonts";
+
 *,
 *::before,
 *::after {
@@ -48,7 +50,6 @@ p {
 }
 
 @import "./libs/bootstrap-reboot.min";
-@import "./fonts/fonts";
 @import "./components/header/header";
 @import "./components/intro/intro";
 @import "./components/clients/clients";

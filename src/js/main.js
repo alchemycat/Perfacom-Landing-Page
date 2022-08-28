@@ -100,15 +100,35 @@ window.addEventListener("DOMContentLoaded", () => {
       item.textContent = city;
     });
     const adminEmails = document.querySelectorAll('[name="admin_email"]');
+    const email = document.querySelector(".contact-email");
+    const phones = document.querySelectorAll(".contact-phone");
+    const almatyEmail = "almaty@perfograd.kz";
+    const nursultanEmail = "Danexltd@mail.ru";
+    const almatyPhone = "+ 7 (707) 550-84-88";
+    const almatyClearPhone = almatyPhone.match(/(\+|\d)/g).join("");
+    const nursultanPhone = "+ 7 (707) 550-84-89";
+    const nursultanClearPhone = nursultanPhone.match(/(\+|\d)/g).join("");
 
     if (city == "Алматы") {
       adminEmails.forEach((item) => {
-        item.value = "vtiw27@gmail.com";
+        item.value = "almaty@perfograd.kz";
       });
+      phones.forEach((phone) => {
+        phone.textContent = almatyPhone;
+        phone.href = `tel:${almatyClearPhone}`;
+      });
+      email.textContent = almatyEmail;
+      email.href = `mailto:${almatyEmail}`;
     } else {
       adminEmails.forEach((item) => {
-        item.value = "colacat1927@gmail.com";
+        item.value = nursultanEmail;
       });
+      phones.forEach((phone) => {
+        phone.textContent = nursultanPhone;
+        phone.href = `tel:${nursultanClearPhone}`;
+      });
+      email.textContent = nursultanEmail;
+      email.href = `mailto:${nursultanEmail}`;
     }
   }
 
@@ -125,7 +145,7 @@ window.addEventListener("DOMContentLoaded", () => {
     buttons.forEach((button) => {
       button.addEventListener("click", (e) => {
         e.preventDefault();
-        window.localStorage.setItem("city", button.textContent);
+        window.localStorage.setItem("city", button.textContent.trim());
         if (modalActiveClass) {
           modal.classList.remove(modalActiveClass);
           document.body.style.overflow = "visible";
