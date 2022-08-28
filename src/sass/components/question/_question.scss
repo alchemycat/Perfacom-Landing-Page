@@ -30,10 +30,13 @@
   }
 
   &__form {
-    margin-top: 74px;
+    margin-top: 55px;
+
     width: 440px;
+    min-height: 367px;
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
     label {
       margin-bottom: 0;
       position: relative;
