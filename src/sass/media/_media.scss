@@ -552,16 +552,14 @@
 
 @media (max-width: 767px) {
   .container {
-    padding: 0px 10px;
-    max-width: 374px;
+    padding: 0 10px;
+    max-width: 576px;
   }
+
   .header {
     &__wrapper {
       padding: 0 10px;
-      max-width: 374px;
-    }
-    &__logo {
-      max-width: 95px;
+      max-width: 576px;
     }
   }
 
@@ -576,7 +574,6 @@
     &__right {
       margin-top: 34px;
       width: 100%;
-      // height: 284px;
     }
     &__subtitle {
       width: 100%;
@@ -624,8 +621,11 @@
 
       text-align: justify;
     }
+    &__list {
+      justify-content: center;
+    }
     &__item {
-      width: 354px;
+      width: 100%;
       margin-right: 0px;
     }
   }
@@ -634,7 +634,7 @@
     height: 589px;
     &__block {
       padding: 31px 20px;
-      max-width: 354px;
+      max-width: 576px;
       top: -85px;
     }
     &__left {
@@ -738,12 +738,11 @@
       flex-wrap: wrap;
       flex-direction: row;
       width: 100%;
-      height: 167px;
+      height: 85px;
       align-items: flex-start;
 
       &-item {
-        width: 50%;
-        // justify-content: center;
+        width: 32%;
         a {
           font-size: 13px;
         }
@@ -791,7 +790,7 @@
 
   .modal {
     &__container {
-      max-width: 354px;
+      max-width: 576px;
       padding: 48px 20px;
     }
     &__city {
@@ -816,5 +815,64 @@
   .title {
     font-size: 29px;
     line-height: 42px;
+  }
+}
+
+@media (max-width: 575px) {
+  .container {
+    padding: 0px 10px;
+    max-width: 374px;
+  }
+  .header {
+    &__wrapper {
+      padding: 0 10px;
+      max-width: 374px;
+    }
+    &__logo {
+      max-width: 95px;
+    }
+  }
+
+  .assortment {
+    &__item {
+      width: 354px;
+    }
+  }
+
+  .question {
+    &__block {
+      padding: 31px 20px;
+      max-width: 354px;
+      top: -85px;
+    }
+  }
+
+  .footer {
+    &__contacts {
+      height: 167px;
+      &-item {
+        width: 50%;
+      }
+    }
+  }
+
+  .modal {
+    &__container {
+      max-width: 354px;
+    }
+  }
+}
+
+@media (max-height: 500px) {
+  .question {
+    &__form {
+      min-height: 300px;
+    }
+  }
+
+  .modal {
+    &__container {
+      padding: 10px 20px;
+    }
   }
 }
