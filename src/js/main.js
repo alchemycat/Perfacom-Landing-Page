@@ -14,7 +14,7 @@ window.addEventListener("DOMContentLoaded", () => {
         phone: "Укажите телефон",
         question: "Укажите вопрос",
       },
-      submitHandler: function (form, values, ajax) {
+      submitHandler: function (form) {
         console.log(form);
 
         const at = document.querySelector(".alert");
@@ -102,16 +102,30 @@ window.addEventListener("DOMContentLoaded", () => {
     const adminEmails = document.querySelectorAll('[name="admin_email"]');
     const email = document.querySelector(".contact-email");
     const phones = document.querySelectorAll(".contact-phone");
+    const map = document.querySelector(".footer__map iframe");
+    const address = document.querySelector(".address");
+
     const almatyEmail = "almaty@perfograd.kz";
     const nursultanEmail = "Danexltd@mail.ru";
     const almatyPhone = "+ 7 (707) 550-84-88";
+    const nursultanPhone = "+ 7 (707) 550-84-88";
+    const almatyAddress = `Г. Алматы <br>Ул Сатпаева 29 Д блок А`;
+    const nursultanAddress = `Г. Нур-Султан<br>
+    УЛ. Пушкина, 42 оф. 33`;
+
+    const almatyMap =
+      "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d227.24154594518748!2d76.91116643851085!3d43.2367797677848!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3883692e6aab55e7%3A0x1862adda45c8b8aa!2zMjnQtCwg0JDQu9C80LDRgtGLIDA1MDAwMCwg0JrQsNC30LDRhdGB0YLQsNC9!5e0!3m2!1sru!2sua!4v1661664021490!5m2!1sru!2sua";
+    const nursultanMap =
+      "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d1413.92990659563!2d71.48702208096599!3d51.17832002712885!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x424581aa16dcfb93%3A0x76b3bab62ea9361b!2z0YPQuy4g0JDQu9C10LrRgdCw0L3QtNGA0LAg0J_Rg9GI0LrQuNC90LAgNDIsINCd0YPRgC3QodGD0LvRgtCw0L0gMDIwMDAwLCDQmtCw0LfQsNGF0YHRgtCw0L0!5e0!3m2!1sru!2sua!4v1661523309333!5m2!1sru!2sua";
+
     const almatyClearPhone = almatyPhone.match(/(\+|\d)/g).join("");
-    const nursultanPhone = "+ 7 (707) 550-84-89";
     const nursultanClearPhone = nursultanPhone.match(/(\+|\d)/g).join("");
 
     if (city == "Алматы") {
+      map.src = almatyMap;
+      address.innerHTML = almatyAddress;
       adminEmails.forEach((item) => {
-        item.value = "almaty@perfograd.kz";
+        item.value = almatyEmail;
       });
       phones.forEach((phone) => {
         phone.textContent = almatyPhone;
@@ -120,6 +134,8 @@ window.addEventListener("DOMContentLoaded", () => {
       email.textContent = almatyEmail;
       email.href = `mailto:${almatyEmail}`;
     } else {
+      map.src = nursultanMap;
+      address.innerHTML = nursultanAddress;
       adminEmails.forEach((item) => {
         item.value = nursultanEmail;
       });
