@@ -143,6 +143,19 @@ window.addEventListener("DOMContentLoaded", () => {
 
   toggleBurger(".burger", ".navbar", "burger_active", "navbar_active");
 
+  //
+  function setCity() {
+    const pathname = window.location.pathname;
+
+    if (pathname.includes == "almaty") {
+      window.localStorage.setItem("city", "almaty");
+    } else if (pathname.includes == "nursultan") {
+      window.localStorage.setItem("city", "nursultan");
+    }
+  }
+
+  setCity();
+
   //Модальные окна
 
   function modals(
@@ -161,7 +174,7 @@ window.addEventListener("DOMContentLoaded", () => {
     }
 
     //Показываем модалку
-    function showModal(triggerButton, modal, modalActiveClass, key = null) {
+    function showModal(triggerButton, modal, modalActiveClass) {
       if (triggerButton) {
         triggerButton.forEach((btn) => {
           btn.addEventListener("click", () => {
@@ -170,20 +183,17 @@ window.addEventListener("DOMContentLoaded", () => {
           });
         });
       } else {
-        let city;
-
-        if (key) {
-          city = window.localStorage.getItem(storageKey);
-        }
-
-        if (!city) {
+        const pathname = window.location.pathname;
+        console.log(pathname);
+        if (pathname.includes("almaty") || pathname.includes("nursultan")) {
+        } else {
           modal.classList.add(modalActiveClass);
           document.body.style.overflow = "hidden";
         }
       }
     }
 
-    showModal(triggerButton, modal, modalActiveClass, storageKey); //Вызываем модальное окно с проверкой локал сторедж
+    showModal(triggerButton, modal, modalActiveClass); //Вызываем модальное окно с проверкой локал сторедж
 
     //Закрытие модального окна
 
@@ -209,164 +219,11 @@ window.addEventListener("DOMContentLoaded", () => {
   modals(".assortment__button", "#order", ".modal__close", "modal_active"); //Вызываем модалки для заказов
   modals(".call_button", "#call", ".modal__close", "modal_active"); //Вызываем модалки для заказов
 
-  //Функция для изменения данных на странице
-  function changePageData(
-    cityElementSelector,
-    key,
-    targetEmailSelector,
-    emailElementSelector,
-    phoneElementSelector,
-    mapIframeSelector,
-    addressSelector,
-    namesSelector,
-    introTextSelector,
-    introTitleSelector,
-    introSubtitleSelector,
-    assortmentTitleSelector,
-    assortmentTextSelector,
-    questionTitleSelector,
-    questionTextSelector,
-    data
-  ) {
-    const cityElements = document.querySelectorAll(cityElementSelector);
-    const adminEmails = document.querySelectorAll(targetEmailSelector);
-    const email = document.querySelector(emailElementSelector);
-    const phones = document.querySelectorAll(phoneElementSelector);
-    const map = document.querySelector(mapIframeSelector);
-    const address = document.querySelector(addressSelector);
-    const names = document.querySelectorAll(namesSelector);
-    const introText = document.querySelector(introTextSelector);
-    const introSubtitle = document.querySelector(introSubtitleSelector);
-    const introTitle = document.querySelector(introTitleSelector);
-    const assortmentTitle = document.querySelector(assortmentTitleSelector);
-    const assortentText = document.querySelector(assortmentTextSelector);
-    const questionTitle = document.querySelector(questionTitleSelector);
-    const questionText = document.querySelector(questionTextSelector);
-
-    function setData(data) {
-      try {
-        introText.textContent = data.introText;
-        introTitle.innerHTML = data.introTitle;
-        introSubtitle.textContent = data.introSubtitle;
-        assortmentTitle.innerHTML = data.assortmentTitle;
-        assortentText.textContent = data.assortmentText;
-        questionTitle.innerHTML = data.questionTitle;
-        questionText.textContent = data.questionText;
-
-        map.src = data.mapLink;
-        address.innerHTML = data.address;
-
-        names.forEach((item) => {
-          item.innerHTML = data.name;
-        });
-
-        adminEmails.forEach((item) => {
-          item.value = data.email;
-        });
-
-        phones.forEach((phone) => {
-          phone.textContent = data.phone;
-          phone.href = `tel:${clearPhone(data.phone)}`;
-        });
-
-        email.innerHTML = data.email;
-        email.href = `mailto:${data.email}`;
-      } catch (err) {
-        console.log(err);
-      }
-    }
-
-    const city = window.localStorage.getItem(key) || "Нур-Султан";
-
-    //Заменяем город на выбранный
-    cityElements.forEach((item) => {
-      item.textContent = city;
-    });
-
-    //Замена данных
-    if (city == "Алматы") {
-      history.replaceState({ page: 2 }, "JavaScript", "/almaty");
-      setData(data.almaty);
-    } else {
-      history.replaceState({ page: 2 }, "JavaScript", "/nursultan");
-      setData(data.nursultan);
-    }
-
-    //Вспомогательная функция для удаления лишних символов из телефона
-    function clearPhone(phone) {
-      return phone.match(/(\+|\d)/g).join("");
-    }
-  }
-
-  changePageData(
-    ".current__city",
-    "city",
-    '[name="admin_email"]',
-    ".contact-email",
-    ".contact-phone",
-    ".footer__map iframe",
-    ".address",
-    ".company-name",
-    ".intro__text",
-    ".intro__title",
-    ".intro__subtitle",
-    ".assortment__title",
-    ".assortment__description",
-    ".question__title",
-    ".question__text",
-    data
-  ); //Вызываем функцию для изменения данных на странице
-
-  //Изменение города
-  function changeCity(buttonsSelector, modalSelector, modalActiveClass = null) {
-    const buttons = document.querySelectorAll(buttonsSelector);
-    const modal = document.querySelector(modalSelector);
-
-    buttons.forEach((button) => {
-      button.addEventListener("click", (e) => {
-        e.preventDefault();
-        window.localStorage.setItem("city", button.textContent.trim());
-        if (modalActiveClass) {
-          modal.classList.remove(modalActiveClass);
-          document.body.style.overflow = "visible";
-        }
-
-        try {
-          let footerList = document.querySelector(".footer__change-city");
-          footerList.classList.remove("change__city_active");
-        } catch {}
-
-        changePageData(
-          ".current__city",
-          "city",
-          '[name="admin_email"]',
-          ".contact-email",
-          ".contact-phone",
-          ".footer__map iframe",
-          ".address",
-          ".company-name",
-          ".intro__text",
-          ".intro__title",
-          ".intro__subtitle",
-          ".assortment__title",
-          ".assortment__description",
-          ".question__title",
-          ".question__text",
-          data
-        ); //Вызываем функцию для изменения данных на странице
-      });
-    });
-  }
-
-  changeCity(".modal__button", "#city", "modal_active"); //Подключаем функцию ко всем кнопкам
-  changeCity(".change__city-button"); //Подключаем функцию ко всем кнопкам
-
   //Переключаем список городов
   function toggleList(buttonSelector, listSelector) {
     const changeButton = document.querySelector(buttonSelector);
 
-    changeButton.addEventListener("click", (e) => {
-      e.preventDefault();
+    changeButton.addEventListener("click", () => {
       const changeModal = document.querySelector(listSelector);
 
       changeModal.classList.toggle("change__city_active");
